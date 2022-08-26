@@ -4,10 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Необходимая плотность при смешивании"
+        android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <EditText
@@ -16,10 +20,10 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:background="@null"
-            android:ems="10"
+            android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:hint="Необходимая плотность при смешивании..." />
+            android:text="1.08"/>
 
         <TextView
             android:id="@+id/metricMixingTV"
@@ -32,10 +36,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Исходный объем раствора"
+        android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <EditText
@@ -44,10 +52,10 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:background="@null"
-            android:ems="10"
+            android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:hint="Исходный объем раствора..." />
+            android:text="150"/>
 
         <TextView
             android:id="@+id/metricVolumeTV"
@@ -60,10 +68,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Плотность исходного раствора"
+        android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <EditText
@@ -72,10 +84,10 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:background="@null"
-            android:ems="10"
+            android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:hint="Плотность исходного раствора..." />
+            android:text="1.13"/>
 
         <TextView
             android:id="@+id/metricStockSolutionTV"
@@ -88,10 +100,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Плотность добавляемого раствора"
+        android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <EditText
@@ -100,10 +116,10 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:background="@null"
-            android:ems="10"
+            android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:hint="Плотность добавляемого раствора..." />
+            android:text="1.00"/>
 
         <TextView
             android:id="@+id/metricAddedSolutionTV"
@@ -116,10 +132,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Необходимо добавить раствора"
+        android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -141,10 +161,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Конечный объем раствора"
+        android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
