@@ -1,16 +1,24 @@
-package dev.artem.engineeringcalculator;
+package dev.artem.engineeringcalculator.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Calculator1 extends AppCompatActivity {
+import dev.artem.engineeringcalculator.MainActivity;
+import dev.artem.engineeringcalculator.R;
+
+public class Calculator1Fragment extends Fragment {
 
     private RecyclerView densityRV;
 
@@ -22,24 +30,31 @@ public class Calculator1 extends AppCompatActivity {
     private TextView addTV;
     private TextView finishVolumeTV;
 
+    MainActivity activity;
+    private View rootView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.calculator1);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.activity = (MainActivity) activity;
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.calculator1, null);
 
         init();
         initListeners();
+        return rootView;
     }
 
     private void init(){
-        mixingET = findViewById(R.id.mixingET);
-        volumeET = findViewById(R.id.volumeET);
-        stockSolutionET = findViewById(R.id.stockSolutionET);
-        addedSolutionET = findViewById(R.id.addedSolutionET);
+        mixingET = rootView.findViewById(R.id.mixingET);
+        volumeET = rootView.findViewById(R.id.volumeET);
+        stockSolutionET = rootView.findViewById(R.id.stockSolutionET);
+        addedSolutionET = rootView.findViewById(R.id.addedSolutionET);
 
-        addTV = findViewById(R.id.addTV);
-        finishVolumeTV = findViewById(R.id.finishVolumeTV);
+        addTV = rootView.findViewById(R.id.addTV);
+        finishVolumeTV = rootView.findViewById(R.id.finishVolumeTV);
     }
 
     private void initListeners(){
