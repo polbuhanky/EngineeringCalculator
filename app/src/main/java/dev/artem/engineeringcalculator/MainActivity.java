@@ -20,6 +20,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
+import dev.artem.engineeringcalculator.utils.StatusBarUtils;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView menuRV;
@@ -27,8 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        StatusBarUtils.setColor(MainActivity.this, getResources().getColor(R.color.grey), 0);
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int mounth = calendar.get(Calendar.MONTH);
+        if(day < 31 && mounth == 7){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);}
 
         init();
         initListeners();
@@ -71,11 +80,9 @@ public class MainActivity extends AppCompatActivity {
                         case 0:
                             intent = new Intent(MainActivity.this, Calculator1.class);
                             break;
-
                         case 1:
                             intent = new Intent(MainActivity.this, Calculator2.class);
                             break;
-
                         default:
                             intent = new Intent(MainActivity.this, Calculator1.class);
                     }

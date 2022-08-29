@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import dev.artem.engineeringcalculator.utils.StatusBarUtils;
+
 public class Calculator2 extends AppCompatActivity {
 
     private RecyclerView densityRV;
@@ -27,7 +29,7 @@ public class Calculator2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator2);
-
+        StatusBarUtils.setColor(this, getResources().getColor(R.color.grey), 0);
         init();
         initListeners();
     }
