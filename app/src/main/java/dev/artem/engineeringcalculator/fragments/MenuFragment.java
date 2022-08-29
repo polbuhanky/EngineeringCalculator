@@ -88,7 +88,6 @@ public class MenuFragment extends Fragment {
                         default:
                             fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment());
                     }
-
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
