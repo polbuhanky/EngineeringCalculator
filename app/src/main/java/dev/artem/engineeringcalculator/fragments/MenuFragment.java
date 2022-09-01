@@ -24,7 +24,7 @@ import dev.artem.engineeringcalculator.R;
 
 public class MenuFragment extends Fragment {
     private RecyclerView menuRV;
-    String[] data = {"Необходимая плотность при смешивании растворов", "Изменение плотности при добавлении раствора"};
+    String[] data = {"Необходимая плотность при смешивании растворов", "Изменение плотности при добавлении раствора", "Утяжеление раствора", "Производительность двухцилиндрового насоса"};
 
     MainActivity activity;
     private View rootView;
@@ -83,6 +83,14 @@ public class MenuFragment extends Fragment {
 
                         case 1:
                             fragmentTransaction.replace(R.id.big_container, new Calculator2Fragment());
+                            break;
+
+                        case 2:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorMortarFragment());
+                            break;
+
+                        case 3:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorPumpCapacity());
                             break;
 
                         default:

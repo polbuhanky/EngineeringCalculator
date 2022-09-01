@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Необходимая плотность при утяжелении раствора"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="1.54"/>
+
+        <TextView
+            android:id="@+id/metricMixingTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Исходный объем раствора"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="110"/>
+
+        <TextView
+            android:id="@+id/metricVolumeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="м^3" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Плотность исходного раствора"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="1.42"/>
+
+        <TextView
+            android:id="@+id/metricStockSolutionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Удельный вес утяжелителя"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="4.20"/>
+
+        <TextView
+            android:id="@+id/metricAddedSolutionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Необходимое количество утяжелителя"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/result1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="20842" />
+
+        <TextView
+            android:id="@+id/metricaddTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="кг" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Конечный объем раствора"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/result2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="115" />
+
+        <TextView
+            android:id="@+id/metricFinishVolumeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="м^3" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

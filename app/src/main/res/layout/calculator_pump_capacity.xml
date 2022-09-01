@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Диаметр поршня" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="160"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="мм" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="к-ство двойных ходов в минуту"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/parametr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:background="@null"
+        android:minEms="2"
+        android:textSize="18dp"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="55"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="коэфф. наполнения клапанов"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/parametr3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:background="@null"
+        android:minEms="2"
+        android:textSize="18dp"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="0.73"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="диаметр штока"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="70"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="мм" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ход штока"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="400"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="мм" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="плотность раствора"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="1.17"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="истинная плотность раствора"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="1.2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="средняя плотность тв. фазы"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/parametr8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="2.6"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Производительность"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/result1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="1.172" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="м^3/мин" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/result2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="19.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="л/сек" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Подача"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/result3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="21.3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="л/ход" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Коэфицент наполнения клапанов"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/result4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:textSize="18dp"
+        android:text="0.73" />
+
+</LinearLayout>
+</ScrollView>
