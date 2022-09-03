@@ -21,15 +21,16 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Необходимая плотность при смешивании"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:text="размер долота" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/mixingET"
+            android:id="@+id/I12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
@@ -37,31 +38,31 @@
             android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:text="1.08"/>
+            android:text="215.9"/>
 
         <TextView
-            android:id="@+id/metricMixingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="г/см^3" />
+            android:text="мм" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Исходный объем раствора"
+        android:text="диаметр бур. труб"
         android:layout_marginTop="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/volumeET"
+            android:id="@+id/I13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
@@ -69,31 +70,33 @@
             android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:text="150"/>
+            android:text="127"/>
 
         <TextView
-            android:id="@+id/metricVolumeTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="м^3" />
+            android:text="мм" />
 
     </LinearLayout>
+
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Плотность исходного раствора"
+        android:text="диаметр УБТ"
         android:layout_marginTop="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/stockSolutionET"
+            android:id="@+id/I14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
@@ -101,23 +104,23 @@
             android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:text="1.13"/>
+            android:text="171"/>
 
         <TextView
-            android:id="@+id/metricStockSolutionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="г/см^3" />
+            android:text="мм" />
 
     </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Плотность добавляемого раствора"
+        android:text="производительность насосов"
         android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -125,7 +128,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/addedSolutionET"
+            android:id="@+id/I15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
@@ -133,52 +136,50 @@
             android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:text="1.00"/>
+            android:text="1.701"/>
 
         <TextView
-            android:id="@+id/metricAddedSolutionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="г/см^3" />
+            android:text="м^3/мин" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Необходимо добавить раствора"
-        android:layout_marginTop="10dp"/>
+        android:text="Скорость потока р-ра за УБТ"
+        android:layout_marginTop="40dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/addTV"
+            android:id="@+id/result1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="93.7" />
+            android:text="124.7" />
 
         <TextView
-            android:id="@+id/metricaddTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="м^3" />
+            android:text="м/мин" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Конечный объем раствора"
+        android:text="Скорость потока р-ра за бур. трубами"
         android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -187,21 +188,20 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/finishVolumeTV"
+            android:id="@+id/result2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="243.8" />
+            android:text="71.1" />
 
         <TextView
-            android:id="@+id/metricFinishVolumeTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="м^3" />
+            android:text="м/мин" />
 
     </LinearLayout>
 

@@ -28,9 +28,16 @@ public class Calculator1Fragment extends Fragment {
 
     private TextView addTV;
     private TextView finishVolumeTV;
+    private TextView calculatorNameTV;
+
+    private String calculatorName;
 
     MainActivity activity;
     private View rootView;
+
+    public Calculator1Fragment(String calculatorName){
+        this.calculatorName = calculatorName;
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -54,6 +61,9 @@ public class Calculator1Fragment extends Fragment {
 
         addTV = rootView.findViewById(R.id.addTV);
         finishVolumeTV = rootView.findViewById(R.id.finishVolumeTV);
+        calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
+
+        calculatorNameTV.setText(calculatorName.toUpperCase());
     }
 
     private void initListeners(){

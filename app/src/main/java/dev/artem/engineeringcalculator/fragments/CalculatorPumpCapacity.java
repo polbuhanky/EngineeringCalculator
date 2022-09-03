@@ -32,9 +32,16 @@ public class CalculatorPumpCapacity extends Fragment {
     private TextView result2;
     private TextView result3;
     private TextView result4;
+    private TextView calculatorNameTV;
+
+    private String calculatorName;
 
     MainActivity activity;
     private View rootView;
+
+    public CalculatorPumpCapacity(String calculatorName){
+        this.calculatorName = calculatorName;
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -64,6 +71,9 @@ public class CalculatorPumpCapacity extends Fragment {
         result2 = rootView.findViewById(R.id.result2);
         result3 = rootView.findViewById(R.id.result3);
         result4 = rootView.findViewById(R.id.result4);
+        calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
+
+        calculatorNameTV.setText(calculatorName.toUpperCase());
     }
 
     private void initListeners(){

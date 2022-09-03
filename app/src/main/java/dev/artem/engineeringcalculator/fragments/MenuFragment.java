@@ -19,12 +19,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import dev.artem.engineeringcalculator.Constants.Constant;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
 public class MenuFragment extends Fragment {
     private RecyclerView menuRV;
-    String[] data = {"Необходимая плотность при смешивании растворов", "Изменение плотности при добавлении раствора", "Утяжеление раствора", "Производительность двухцилиндрового насоса"};
 
     MainActivity activity;
     private View rootView;
@@ -42,7 +42,7 @@ public class MenuFragment extends Fragment {
         rootView = inflater.inflate(R.layout.menu, null);
 
         menuRV = rootView.findViewById(R.id.menuRV);
-        menuRV.setAdapter(new menuAdapter(activity, data));
+        menuRV.setAdapter(new menuAdapter(activity, Constant.CALCULATORS_NAMES));
 
         return rootView;
     }
@@ -78,23 +78,39 @@ public class MenuFragment extends Fragment {
 
                     switch (position){
                         case 0:
-                            fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment());
+                            fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment(Constant.CALCULATORS_NAMES[position]));
                             break;
 
                         case 1:
-                            fragmentTransaction.replace(R.id.big_container, new Calculator2Fragment());
+                            fragmentTransaction.replace(R.id.big_container, new Calculator2Fragment(Constant.CALCULATORS_NAMES[position]));
                             break;
 
                         case 2:
-                            fragmentTransaction.replace(R.id.big_container, new CalculatorMortarFragment());
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorMortarFragment(Constant.CALCULATORS_NAMES[position]));
                             break;
 
                         case 3:
-                            fragmentTransaction.replace(R.id.big_container, new CalculatorPumpCapacity());
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorPumpCapacity(Constant.CALCULATORS_NAMES[position]));
+                            break;
+
+                        case 4:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorDrillPipeFragment(Constant.CALCULATORS_NAMES[position]));
+                            break;
+
+                        case 5:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorFlowVelocityFragment(Constant.CALCULATORS_NAMES[position]));
+                            break;
+
+                        case 6:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorContentSolidPhaseFragment(Constant.CALCULATORS_NAMES[position]));
+                            break;
+
+                        case 7:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorSolidPhaseFragment(Constant.CALCULATORS_NAMES[position]));
                             break;
 
                         default:
-                            fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment());
+                            fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment(Constant.CALCULATORS_NAMES[0]));
                     }
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
