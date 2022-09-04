@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="плотность раствора" />
+        android:text="необходимо поддерживать плотность раствора" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:text="1.1"/>
+            android:text="1.09"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,42 +53,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="к-ство воды по Реторте"
-        android:layout_marginTop="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/k8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:background="@null"
-            android:minEms="2"
-            android:textSize="18dp"
-            android:inputType="numberDecimal|numberSigned"
-            android:text="94"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="%" />
-
-    </LinearLayout>
-
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="к-ство нефти по Реторте"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:text="размер долота" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -104,7 +70,7 @@
             android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:text="0"/>
+            android:text="143.9"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -112,10 +78,107 @@
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="%" />
+            android:text="г/см^3" />
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="мех. скорость бурения"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/k10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="8.5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="м/час" />
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="плотность раствора на входе ЦФ"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/k11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="1.13"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="плотность раствора на выходе ЦФ"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/k12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@null"
+            android:minEms="2"
+            android:textSize="18dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:text="1.06"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:text="г/см^3" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -128,7 +191,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/k10"
+            android:id="@+id/k13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
@@ -151,7 +214,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="удельный вес утяжелителя"
+        android:text="очистка раствора от шлама на поверхности"
         android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -159,7 +222,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/k11"
+            android:id="@+id/k14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
@@ -167,7 +230,7 @@
             android:minEms="2"
             android:textSize="18dp"
             android:inputType="numberDecimal|numberSigned"
-            android:text="2.7"/>
+            android:text="50"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -175,80 +238,18 @@
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="г/см^3" />
+            android:text="%" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="удельный вес нефти"
-        android:layout_marginTop="10dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/k12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:background="@null"
-            android:minEms="2"
-            android:textSize="18dp"
-            android:inputType="numberDecimal|numberSigned"
-            android:text="0.84"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="г/см^3" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="количество хлоридов"
-        android:layout_marginTop="10dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/k13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:background="@null"
-            android:minEms="2"
-            android:textSize="18dp"
-            android:inputType="numberDecimal|numberSigned"
-            android:text="5000"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="мг/л" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="коэфицент преобразования хлоридов"
+        android:text="предполагаемый коэфф. кавернозности"
         android:layout_marginTop="10dp"/>
 
     <EditText
-        android:id="@+id/k14"
+        android:id="@+id/k15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left|center_vertical"
@@ -256,13 +257,12 @@
         android:minEms="2"
         android:textSize="18dp"
         android:inputType="numberDecimal|numberSigned"
-        android:text="1.91"/>
-
+        android:text="1.15"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Твёрдая фаза низкого уд. веса"
+        android:text="Необходимая подача р-ра на центрифугу"
         android:layout_marginTop="40dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -275,7 +275,7 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="1.5" />
+            android:text="1.8" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -283,14 +283,14 @@
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="%" />
+            android:text="м^3/час" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Твёрдая фаза высокого уд. веса"
+        android:text="Естественные потери раствора"
         android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -303,7 +303,7 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="4.2" />
+            android:text="0.24" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -311,14 +311,14 @@
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="%" />
+            android:text="м^3/час" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Общее содержание тв. фазы"
+        android:text="Масса выбуренной породы"
         android:layout_marginTop="10dp"/>
 
     <LinearLayout
@@ -332,7 +332,7 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="5.6" />
+            android:text="413" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -340,14 +340,14 @@
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="%" />
+            android:text="кг" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Плотность рассола"
+        android:text="Оставшейся шлам в растворе после очистки"
         android:layout_marginTop="10dp"/>
 
     <LinearLayout
@@ -361,7 +361,7 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="1.006" />
+            android:text="207" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -369,14 +369,14 @@
             android:layout_marginLeft="10dp"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="г/см^3" />
+            android:text="кг" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Объемное содерж. соли в растворе"
+        android:text="К-ство удаляемого шлама"
         android:layout_marginTop="10dp"/>
 
     <LinearLayout
@@ -390,123 +390,7 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:textSize="18dp"
-            android:text="0.35" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="%" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Содерж. соли в растворе"
-        android:layout_marginTop="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/result6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="9.0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="кг/м^3" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="содерж. шлама в растворе "
-        android:layout_marginTop="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/result7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="39" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="кг/м^3" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Содерж. утяжелителя в растворе"
-        android:layout_marginTop="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/result8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="112" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="кг/м^3" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Общее содерж. тв. фазы в растворе"
-        android:layout_marginTop="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/result9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:textSize="18dp"
-            android:text="151" />
+            android:text="113.8" />
 
         <TextView
             android:layout_width="wrap_content"
