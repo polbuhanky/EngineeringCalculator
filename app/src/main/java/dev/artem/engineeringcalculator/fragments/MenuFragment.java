@@ -125,6 +125,18 @@ public class MenuFragment extends Fragment {
                             fragmentTransaction.replace(R.id.big_container, new CalculatorProductionSolidFragment(Constant.CALCULATORS_NAMES[position]));
                             break;
 
+                        case 12:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorHydrauliclFragment(Constant.CALCULATORS_NAMES[position]));
+                            break;
+
+                        case 13:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorDrilingFluidsFragment(Constant.CALCULATORS_NAMES[position]));
+                            break;
+
+                        case 14:
+                            fragmentTransaction.replace(R.id.big_container, new CalculatorObsColonnaFragment(Constant.CALCULATORS_NAMES[position]));
+                            break;
+
                         default:
                             fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment(Constant.CALCULATORS_NAMES[0]));
                     }
