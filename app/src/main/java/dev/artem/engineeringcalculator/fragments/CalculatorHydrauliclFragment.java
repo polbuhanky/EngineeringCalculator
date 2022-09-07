@@ -414,9 +414,9 @@ public class CalculatorHydrauliclFragment extends Fragment {
                     double E110 = D110 / 3 / 0.785;
                     double F110 = Math.sqrt(E110);
                     double F111 = F110 * 25.4;
-                    double L113 = F111 / 25.4 * 32;
-                    double L112 = F111 / 25.4 * 32;
-                    double L111 = F111 / 25.4 * 32;
+                    double L113 = Double.parseDouble(String.format("%.0f",(F111 / 25.4 * 32)).replace(",","."));
+                    double L112 = Double.parseDouble(String.format("%.0f",(F111 / 25.4 * 32)).replace(",","."));
+                    double L111 = Double.parseDouble(String.format("%.0f",(F111 / 25.4 * 32)).replace(",","."));
                     double M113 = L113 / 32 * 25.4;
                     double M112 = L112 / 32 * 25.4;
                     double M111 = L111 / 32 * 25.4;
@@ -464,7 +464,7 @@ public class CalculatorHydrauliclFragment extends Fragment {
                     double V105 = R97 / W105;
                     double V104 = 0.000061 * R101 * W104;
                     double V101 = (R93 / W99) + (R96 / W101);
-                    double V99 = R99 / (R84 * R84 - R94 * R94);
+                    double V99 = Math.pow(R99, 1.86);
                     double Y82 = X83 / X84;
                     double V87 = V93 * V92;
                     double V81 = V83 * V84;
@@ -541,10 +541,6 @@ public class CalculatorHydrauliclFragment extends Fragment {
                     double V141 = R88 / S142;
                     double V142 = V141 * 0.3048;
                     double O101 = V142;
-
-                    String str = String.format("T48 = %s T47 = %s S47 = %s T6 = %s T3 = %s T4 = %s", T48, T47, S47, T6, T3, T4);
-
-                    Log.d("Hydraulic", str);
 
                     result1.setText(String.valueOf(T13));
                     result2.setText(String.valueOf(T23));
