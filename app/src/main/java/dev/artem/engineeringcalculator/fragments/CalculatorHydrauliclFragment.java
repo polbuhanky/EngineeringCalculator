@@ -584,7 +584,6 @@ public class CalculatorHydrauliclFragment extends Fragment {
             }
         };
         g2.addTextChangedListener(textWatcher);
-        o31.addTextChangedListener(textWatcher);
         f6.addTextChangedListener(textWatcher);
         f7.addTextChangedListener(textWatcher);
         f8.addTextChangedListener(textWatcher);
@@ -611,6 +610,28 @@ public class CalculatorHydrauliclFragment extends Fragment {
         f29.addTextChangedListener(textWatcher);
         f30.addTextChangedListener(textWatcher);
         f31.addTextChangedListener(textWatcher);
+
+        TextWatcher textWatcher2 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try {
+                    resultSizemm.setText(String.valueOf(Double.parseDouble(o31.getText().toString()) / 32 * 25.4));
+                }catch (Exception e){
+                    Log.d("MAIN", "Error: " + e);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        };
+        o31.addTextChangedListener(textWatcher2);
 
     }
 }
