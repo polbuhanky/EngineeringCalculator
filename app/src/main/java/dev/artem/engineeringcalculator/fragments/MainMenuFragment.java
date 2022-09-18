@@ -77,7 +77,7 @@ public class MainMenuFragment extends Fragment {
 
                     switch (position){
                         case 0:
-                            fragmentTransaction.replace(R.id.big_container, new MenuFragment());
+                            fragmentTransaction.replace(R.id.big_container, new EducationFoldersFragment());
                             break;
 
                         case 1:
