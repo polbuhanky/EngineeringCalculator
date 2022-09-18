@@ -22,26 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
 
-import dev.artem.engineeringcalculator.Constants.Constant;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
-import dev.artem.engineeringcalculator.fragments.Calculator1Fragment;
-import dev.artem.engineeringcalculator.fragments.Calculator2Fragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorContentSolidPhaseFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorDrilingFluidsFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorDrillPipeFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorFallSolidControlFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorFloculationFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorFlowVelocityFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorHydrauliclFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorMortarFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorMortarWeightingFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorObsColonnaFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorProductionSolidFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorPumpCapacity;
-import dev.artem.engineeringcalculator.fragments.CalculatorSolidControlFragment;
-import dev.artem.engineeringcalculator.fragments.CalculatorSolidPhaseFragment;
-import dev.artem.engineeringcalculator.fragments.PDFViewerFragment;
 
 public class EducationFilesFragment extends Fragment {
     private RecyclerView menuRV;

@@ -13,10 +13,11 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"
         android:text="info@comtek-lls.ru\ncomtek-llc.ru\n+7(495) 120-26-99"
-        android:gravity="center"
+        android:gravity="bottom|center"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="bottom"
 
         />
 </LinearLayout>

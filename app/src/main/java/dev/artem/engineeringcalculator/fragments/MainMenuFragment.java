@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
+import dev.artem.engineeringcalculator.fragments.PDFSections.EducationFoldersFragment;
 
 public class MainMenuFragment extends Fragment {
     private RecyclerView menuRV;

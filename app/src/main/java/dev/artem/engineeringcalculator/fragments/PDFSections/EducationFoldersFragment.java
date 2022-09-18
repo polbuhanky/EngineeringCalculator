@@ -1,9 +1,8 @@
-package dev.artem.engineeringcalculator.fragments;
+package dev.artem.engineeringcalculator.fragments.PDFSections;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,10 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
 
-import dev.artem.engineeringcalculator.Constants.Constant;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
-import dev.artem.engineeringcalculator.fragments.PDFSections.EducationFilesFragment;
 
 public class EducationFoldersFragment extends Fragment {
     private RecyclerView menuRV;
@@ -57,7 +54,7 @@ public class EducationFoldersFragment extends Fragment {
         return rootView;
     }
 
-    class menuAdapter extends RecyclerView.Adapter<EducationFoldersFragment.menuAdapter.ViewHolder>{
+    class menuAdapter extends RecyclerView.Adapter<menuAdapter.ViewHolder>{
         private String[] data;
 
         private Context context;
@@ -69,13 +66,13 @@ public class EducationFoldersFragment extends Fragment {
 
         @NonNull
         @Override
-        public EducationFoldersFragment.menuAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(context).inflate(R.layout.menu_item, parent, false);
-            return new EducationFoldersFragment.menuAdapter.ViewHolder(view);
+            return new ViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull EducationFoldersFragment.menuAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
             holder.itemTV.setText(data[position]);
             holder.backgroundItem.setOnClickListener(new View.OnClickListener() {
                 @Override
