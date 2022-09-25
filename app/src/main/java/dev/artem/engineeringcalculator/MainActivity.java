@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setNavigationBarColor(getResources().getColor(R.color.white));
-        StatusBarUtils.setColor(this, getResources().getColor(R.color.grey), 0);
+        StatusBarUtils.setColor(this, getResources().getColor(R.color.black), 0);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.BarColor));
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
 
         init();

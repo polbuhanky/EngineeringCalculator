@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
+import dev.artem.engineeringcalculator.fragments.PDFSections.EducationFoldersFragment;
 
 public class MainMenuFragment extends Fragment {
     private RecyclerView menuRV;
@@ -77,7 +78,7 @@ public class MainMenuFragment extends Fragment {
 
                     switch (position){
                         case 0:
-                            fragmentTransaction.replace(R.id.big_container, new MenuFragment());
+                            fragmentTransaction.replace(R.id.big_container, new EducationFoldersFragment());
                             break;
 
                         case 1:
