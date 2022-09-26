@@ -414,6 +414,18 @@ public class HydraulicsFragment extends Fragment {
                     double AB23 = (4 * B30Double / 1000) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2)));
                     double AE23 = (4 * B30Double / 1000) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2)));
                     double P33 = 0.408 * (B30Double * 15.85032) / (Math.pow((B3Double * 0.03937), 2) - Math.pow((B11Double * 0.03937), 2));
+                    double O22 = (0.4 + 0.3 + 0.3 + 0.4) * 100000 * (B32Double * 1000) * Math.pow(B30Double / 1000, 2);
+                    double N20 = B25Double * Math.PI * Math.pow(B26Double / 1000, 2) / 4;
+                    double P20 = B27Double * Math.PI * Math.pow(B28Double / 1000, 2) / 4;
+                    double R20 = B29Double * Math.PI * Math.pow(B30Double / 1000, 2) / 4;
+                    double N21 = B21Double * 100000;
+                    double T21 = (B30Double / 1000) * (B21Double * 100000);
+
+                    double W12 = (4 * (B30Double / 1000)) / (Math.PI * Math.pow((B11Double - 2 * B12Double) / 1000, 2));
+                    double W15 = (4 * (B30Double / 1000)) / (Math.PI * Math.pow((B14Double - 2 * B15Double) / 1000, 2));
+                    double W18 = (4 * (B30Double / 1000)) / (Math.PI * Math.pow((B17Double - 2 * B18Double) / 1000, 2));
+                    double AI20 = Math.pow(B37Double / 1000, 3) * (B32Double * 1000) * (B38Double * 1000 - B32Double * 1000) * 9.81 / Math.pow(((B33Double - B34Double) / 1000), 2);
+                    double AK20 = Math.pow(B37Double / 1000, 2) * ((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * (B32Double * 1000) / Math.pow(((B33Double - B34Double) / 1000), 2);
 
                     double R19 = (5.11 * B33Double) / Math.pow(1022, P19);
                     double R13 = (5.11 * B33Double) / Math.pow(1022, P13);
@@ -710,6 +722,55 @@ public class HydraulicsFragment extends Fragment {
                     double BD25 = (B4Double > 0 && B30Double > 0) ? (BD24 + BD23 + AU26) / 3 : 0;
                     double BD47 = BD25 + BD28 + BD32 + BD36 + BD40 + BD44;
 
+                    double T20 = P20 + N20 + R20;
+                    double W20 = (B25Double == 0 && B27Double == 0 && B29Double == 0 ) ? 0 : Math.pow(B30Double / 1000, 2) * (B32Double * 1000) / (2 * Math.pow(0.95, 2) * Math.pow(T20, 2));
+                    double Q21 = (B30Double / 1000) * ((R3 > 1 || N3 > 1) ? 0 : AS21 + BD47 + N21 + O22 + W20);
+                    double AC20 = (B30Double / 1000) * W20;
+                    double M51 = 0.6 * ((R3 > 1 || N3 > 1) ? 0 : AS21 + BD47 + N21 + O22 + W20) - W20;
+                    double Z20 = (B25Double == 0 && B27Double == 0 && B29Double == 0) ? 0 : (B30Double / 1000) / T20;
+                    double AF20 = (B32Double * 1000) * (B30Double / 1000) * Z20;
+                    double AS7 = (B4Double > 0 && B30Double > 0) ? AK5 == 0 ? 1 : 2 : 0;
+                    double AS10 = (B7Double > 0 && B30Double > 0) ? AK8 == 0 ? 1 : 2 : 0;
+                    double M12 = (Math.pow(1 + 3 * N3, 2) / N3) * Math.pow((1 / (2 + N3)), ((N3 + 2) / (N3 + 1)));
+                    double Z12 = Math.pow(8, (1 - N3)) * Math.pow(4 * N3 / (3 * N3 + 1), N3) * ((Math.pow(W12, (2 - N3)) * Math.pow((B11Double - 2 * B12Double) / 1000, N3) * (B32Double * 1000)) / P3);
+                    double O12 = 6464 / M12;
+                    double Q12 = Math.PI * Math.pow(((O12 * Math.pow((B11Double - 2 * B12Double) / 1000, (4 - 3 * N3)) * P3 * Math.pow((3 * N3 + 1) / N3, N3)) / (Math.pow(2, (7 - 3 * N3)) * (B32Double * 1000))), (1 / (2 - N3)));
+                    double AB12 = 0.3164 / (Math.pow(Z12, 0.25));
+                    double T12 = B30Double <= (Q12 * 1000) ? (4 * P3 * B10Double / ((B11Double - 2 * B12Double) / 1000)) * Math.pow(8 * ((3 * N3 + 1) / N3) * ((B30Double / 1000) / (Math.PI * Math.pow((B11Double - 2 * B12Double) / 1000, 3))), N3) : 0;
+                    double AD12 = T12 == 0 ? (AB12 * B10Double * Math.pow(W12, 2) * (B32Double * 1000)) / (2 * ((B11Double - 2 * B12Double) / 1000)) : 0;
+                    double AS13 = (B10Double > 0 && B30Double > 0) ? AD12 == 0 ? 1 : 2 : 0;
+                    double M15 = (Math.pow(1 + 3 * N3, 2) / N3) * Math.pow((1 / (2 + N3)), ((N3 + 2) / (N3 + 1)));
+                    double O15 = 6464 / M15;
+                    double Z15 = Math.pow(8, (1 - N3)) * Math.pow(4 * N3 / (3 * N3 + 1), N3) * ((Math.pow(W15, (2 - N3)) * Math.pow((B14Double - 2 * B15Double)/1000, N3) * (B32Double * 1000)) / P3);
+                    double Q15 = Math.PI * Math.pow(((O15 * Math.pow(((B14Double - 2 * B15Double) / 1000), (4 - 3 * N3)) * P3 * Math.pow((3 * N3 + 1) / N3, N3)) / (Math.pow(2, (7 - 3 * N3)) * (B32Double * 1000))), (1 / (2 - N3)));
+                    double AB15 = 0.3164 / Math.pow(Z15, 0.25);
+                    double T15 = B30Double <= (Q15 * 1000) ? (4 * P3 * B13Double / ((B14Double - 2 * B15Double) / 1000)) * Math.pow(8 * ((3 * N3 + 1) / N3) * ((B30Double / 1000) / (Math.PI * Math.pow((B14Double - 2 * B15Double) / 1000, 3))), N3) : 0;
+                    double AD15 = T15 == 0 ? (AB15 * B13Double * Math.pow(W15, 2) * (B32Double * 1000)) / (2 * ((B14Double - 2 * B15Double) / 1000)) : 0;
+                    double AS16 = (B13Double > 0 && B30Double > 0) ? AD15 == 0 ? 1 : 2 : 0;
+                    double M18 = (Math.pow(1 + 3 * N3, 2) / N3) * Math.pow((1 / (2 + N3)), ((N3 + 2) / (N3 + 1)));
+                    double Z18 = Math.pow(8, (1 - N3)) * Math.pow(4 * N3 / (3 * N3 + 1), N3) * ((Math.pow(W18, (2 - N3)) * Math.pow((B17Double - 2 * B18Double) / 1000, N3) * (B32Double * 1000)) / P3);
+                    double O18 = 6464 / M18;
+                    double AB18 = 0.3164 / Math.pow(Z18, 0.25);
+                    double Q18 = Math.PI * Math.pow(((O18 * Math.pow(((B17Double - 2 * B18Double) / 1000), (4 - 3 * N3)) * P3 * Math.pow((3 * N3 + 1) / N3, N3)) / (Math.pow(2, (7 - 3 * N3)) * (B32Double * 1000))), (1 / (2 - N3)));
+                    double T18 = B30Double <= (Q18 * 1000) ? (4 * P3 * B16Double / ((B17Double - 2 * B18Double) / 1000)) * Math.pow(8 * ((3 * N3 + 1) / N3) * ((B30Double / 1000) / (Math.PI * Math.pow((B17Double - 2 * B18Double) / 1000, 3))), N3) : 0;
+                    double AD18 = T18 == 0 ? (AB18 * B16Double * Math.pow(W18, 2) * (B32Double * 1000)) / (2 * ((B17Double - 2 * B18Double) / 1000)) : 0;
+                    double AS19 = (B16Double > 0 && B30Double > 0) ? AD18 == 0 ? 1 : 2 : 0;
+                    double BC26 = (B4Double > 0 && B30Double > 0) ? B30Double <= (((Z24 + AU24 == 0) ? Q24 * 1000 : T24 * 1000) / 1.57) ? 1 : 2 : 0;
+                    double BC29 = (B7Double > 0 && B30Double > 0) ? B30Double / 1000 <= R30 ? 1 : 2 : 0;
+                    double BC33 = (B10Double > 0 && B30Double > 0) ? B30Double / 1000 <= R34 ? 1 : 2 : 0;
+                    double AO20 = 4 * Math.pow((B37Double / 1000) * ((B38Double * 1000) - (B32Double * 1000)) / (B32Double * 1000), 0.5);
+                    double AM20 = ((B33Double - B34Double) / 1000) * (AI20 - 6 * AK20) / ((B37Double / 1000) * (B32Double * 1000) * (18 + 0.61 * Math.pow(AI20, 0.5)));
+                    double AQ20 = ((BC26 == 1 || BC26 == 0) && (BC29 == 1 || BC29 == 0) && (BC33 == 1 || BC33 == 0)) ? AM20 : AO20;
+                    double M49 = Math.max(Math.max((((Z24 + AU24 == 0) ? Q24 * 1000 : T24 * 1000) / 1.57), ((R30 * 1000) / 1.57)), ((R34 * 1000) / 1.57));
+
+                    double M25 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
+                    double M26 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
+                    double M29 = (B7Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2))) : 0;
+                    double M33 = (B10Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B11Double / 1000, 2))) : 0;
+                    double M37 = (B13Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B14Double / 1000, 2))) : 0;
+                    double M41 = (B16Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B17Double / 1000, 2))) : 0;
+                    double M45 = (B19Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B20Double / 1000, 2))) : 0;
+
                     G1.setText(String.valueOf(N3));
                     G2.setText(String.valueOf(P3));
                     G3.setText(String.valueOf(R3));
@@ -730,8 +791,8 @@ public class HydraulicsFragment extends Fragment {
                     G18.setText(String.valueOf((R34 * 1000) / 1.57));
                     G19.setText(String.valueOf((R38 * 1000) / 1.57));
                     G20.setText(String.valueOf((R42 * 1000) / 1.57));
-                    G21.setText(String.valueOf(Math.min(M25, M26, M29, M33, M37, M41, M45)));
-                    G22.setText(String.valueOf(Math.max(M25, M26, M29, M33, M37, M41, M45)));
+                    G21.setText(String.valueOf(Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))));
+                    G22.setText(String.valueOf(Math.max(Math.max(Math.max(M25, M26), Math.max(M29, M33)), Math.max(Math.max(M37, M41), M45))));
                     G23.setText(String.valueOf(B30Double > 0 ? Q21 : "Q-?"));
                     G24.setText(String.valueOf(B30Double > 0 ? T21 : "Q-?"));
                     G25.setText(String.valueOf(B30Double > 0 ? T21 * 100 / Q21 : "Q-?"));
@@ -746,10 +807,8 @@ public class HydraulicsFragment extends Fragment {
                     G34.setText(String.valueOf(AS16));
                     G35.setText(String.valueOf(AS19));
                     G37.setText(String.valueOf(AQ20 < 0 ? 0 : AQ20));
-                    G38.setText(String.valueOf((Math.min(M25, M26, M29, M33, M37, M41, M45) - (AQ20 < 0 ? 0 : AQ20)) > 0 ? Math.min(M25, M26, M29, M33, M37, M41, M45) - (AQ20 < 0 ? 0 : AQ20) : "↑ шлама невозможен"));
-                    G39.setText(String.valueOf(B39String.equals("a < 50") ? (B30Double / (Math.min(M25, M26, M29, M33, M37, M41, M45))) * (400000 * 1 / ((B32Double * 8.34) * (T3 * 1000))) / 197 : M49));
-
-
+                    G38.setText(String.valueOf(((Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))) - (AQ20 < 0 ? 0 : AQ20)) > 0 ? (Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))) - (AQ20 < 0 ? 0 : AQ20) : "↑ шлама невозможен"));
+                    G39.setText(String.valueOf(B39String.equals("a < 50") ? (B30Double / ((Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))))) * (400000 * 1 / ((B32Double * 8.34) * (T3 * 1000))) / 197 : M49));
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
