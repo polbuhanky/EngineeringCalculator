@@ -159,6 +159,7 @@ public class MenuFragment extends Fragment {
 
                         case 20:
                             fragmentTransaction.replace(R.id.big_container, new HydraulicsFragment(Constant.CALCULATORS_NAMES[position]));
+                            break;
 
                         default:
                             fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment(Constant.CALCULATORS_NAMES[0]));

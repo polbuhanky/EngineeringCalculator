@@ -149,7 +149,7 @@ public class HydraulicsFragment extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.calculator_mortar_weighting, null);
+        rootView = inflater.inflate(R.layout.hydraulics, null);
 
         init();
         initListeners();
