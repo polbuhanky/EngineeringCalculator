@@ -1,6 +1,7 @@
 package dev.artem.engineeringcalculator.fragments;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
+import java.util.ArrayList;
 
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
@@ -129,6 +138,24 @@ public class HydraulicsFragment extends Fragment {
     private TextView G37;
     private TextView G38;
     private TextView G39;
+
+    private TextView H31;
+    private TextView H32;
+    private TextView H33;
+    private TextView H34;
+    private TextView H35;
+    private TextView H36;
+
+    private TextView J33;
+    private TextView J34;
+    private TextView J35;
+    private TextView J36;
+    private TextView J37;
+    private TextView J38;
+
+    private LineChart lineChart1;
+    private LineChart lineChart2;
+    private LineChart lineChart3;
 
 
     private TextView calculatorNameTV;
@@ -268,6 +295,24 @@ public class HydraulicsFragment extends Fragment {
         G37 = rootView.findViewById(R.id.G37);
         G38 = rootView.findViewById(R.id.G38);
         G39 = rootView.findViewById(R.id.G39);
+
+        H31 = rootView.findViewById(R.id.H31);
+        H32 = rootView.findViewById(R.id.H32);
+        H33 = rootView.findViewById(R.id.H33);
+        H34 = rootView.findViewById(R.id.H34);
+        H35 = rootView.findViewById(R.id.H35);
+        H36 = rootView.findViewById(R.id.H36);
+
+        J33 = rootView.findViewById(R.id.J33);
+        J34 = rootView.findViewById(R.id.J34);
+        J35 = rootView.findViewById(R.id.J35);
+        J36 = rootView.findViewById(R.id.J36);
+        J37 = rootView.findViewById(R.id.J37);
+        J38 = rootView.findViewById(R.id.J38);
+
+        lineChart1 = rootView.findViewById(R.id.lineChart1);
+        lineChart2 = rootView.findViewById(R.id.lineChart2);
+        lineChart3 = rootView.findViewById(R.id.lineChart3);
 
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
@@ -420,7 +465,14 @@ public class HydraulicsFragment extends Fragment {
                     double R20 = B29Double * Math.PI * Math.pow(B30Double / 1000, 2) / 4;
                     double N21 = B21Double * 100000;
                     double T21 = (B30Double / 1000) * (B21Double * 100000);
-
+                    double M25 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
+                    double M26 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
+                    double M29 = (B7Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2))) : 0;
+                    double M33 = (B10Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B11Double / 1000, 2))) : 0;
+                    double M37 = (B13Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B14Double / 1000, 2))) : 0;
+                    double M41 = (B16Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B17Double / 1000, 2))) : 0;
+                    double M45 = (B19Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B20Double / 1000, 2))) : 0;
+                    double T48 = 0.6 * Math.PI * (Math.pow(B3Double / 1000, 2)) / 4;
                     double W12 = (4 * (B30Double / 1000)) / (Math.PI * Math.pow((B11Double - 2 * B12Double) / 1000, 2));
                     double W15 = (4 * (B30Double / 1000)) / (Math.PI * Math.pow((B14Double - 2 * B15Double) / 1000, 2));
                     double W18 = (4 * (B30Double / 1000)) / (Math.PI * Math.pow((B17Double - 2 * B18Double) / 1000, 2));
@@ -519,7 +571,7 @@ public class HydraulicsFragment extends Fragment {
                     double AK11 = W11 == 0 ? (AI11 * 8 * Math.pow(B30Double / 1000, 2) * (B32Double * 1000) * B10Double) / (Math.pow(Math.PI, 2) * Math.pow((B11Double - 2 * B12Double) / 1000, 5)) : 0;
                     double AM10 = AK10 * (B7Double * 3.2808);
                     double W8 = B30Double <= (T8 * 1000) ? (128 * (B30Double / 1000) * ((B33Double - B34Double) / 1000) * B7Double) / (Math.PI * Math.pow((B8Double - 2 * B9Double) / 1000, 4)) + (16 * ((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * B7Double) / (3 * ((B8Double - 2 * B9Double) / 1000)) : 0;
-                    double AK8 = W8 == 0 ? (AI8 * 8 * Math.pow(B30Double / 1000, 2) * (B32Double * 1000) * B7Double) / Math.pow(Math.PI, 2) * Math.pow((B8Double - 2 * B9Double) / 1000, 5) : 0;
+                    double AK8 = W8 == 0 ? (AI8 * 8 * Math.pow(B30Double / 1000, 2) * (B32Double * 1000) * B7Double) / (Math.pow(Math.PI, 2) * Math.pow((B8Double - 2 * B9Double) / 1000, 5)) : 0;
                     double AM7 = AK7 * (B4Double * 3.2808);
                     double W5 = B30Double <= (T5 * 1000) ? (128 * (B30Double / 1000) * ((B33Double - B34Double) / 1000) * B4Double) / (Math.PI * Math.pow((B5Double - 2 * B6Double) / 1000, 4)) + (16 * (((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479)) * B4Double) / (3 * ((B5Double - 2 * B6Double) / 1000)) : 0;
                     double AK5 = W5 == 0 ? (AI5 * 8 * Math.pow(B30Double / 1000, 2) * (B32Double * 1000) * B4Double) / Math.pow(Math.PI, 2) * Math.pow(((B5Double - 2 * B6Double) / 1000), 5) : 0;
@@ -539,7 +591,6 @@ public class HydraulicsFragment extends Fragment {
                     double AS9 = (B7Double > 0 && B30Double > 0) ? (AN8 + AO10) / 2 : 0;
                     double AS6 = (B4Double > 0 && B30Double > 0) ? (AN5 + AO7) / 2 : 0;
                     double AS21 = AS6 + AS9 + AS12 + AS15 + AS18;
-
                     double T45 = 5.11 * B34Double / Math.pow(511, R45);
                     double T41 = 5.11 * B34Double / Math.pow(511, R41);
                     double T37 = 5.11 * B34Double / Math.pow(511, R37);
@@ -721,7 +772,6 @@ public class HydraulicsFragment extends Fragment {
                     double BD28 = (B7Double > 0 && B30Double > 0) ? ((U30 + AE30) + (S28 + AG28) + AQ29) / 3 : 0;
                     double BD25 = (B4Double > 0 && B30Double > 0) ? (BD24 + BD23 + AU26) / 3 : 0;
                     double BD47 = BD25 + BD28 + BD32 + BD36 + BD40 + BD44;
-
                     double T20 = P20 + N20 + R20;
                     double W20 = (B25Double == 0 && B27Double == 0 && B29Double == 0 ) ? 0 : Math.pow(B30Double / 1000, 2) * (B32Double * 1000) / (2 * Math.pow(0.95, 2) * Math.pow(T20, 2));
                     double Q21 = (B30Double / 1000) * ((R3 > 1 || N3 > 1) ? 0 : AS21 + BD47 + N21 + O22 + W20);
@@ -762,14 +812,43 @@ public class HydraulicsFragment extends Fragment {
                     double AM20 = ((B33Double - B34Double) / 1000) * (AI20 - 6 * AK20) / ((B37Double / 1000) * (B32Double * 1000) * (18 + 0.61 * Math.pow(AI20, 0.5)));
                     double AQ20 = ((BC26 == 1 || BC26 == 0) && (BC29 == 1 || BC29 == 0) && (BC33 == 1 || BC33 == 0)) ? AM20 : AO20;
                     double M49 = Math.max(Math.max((((Z24 + AU24 == 0) ? Q24 * 1000 : T24 * 1000) / 1.57), ((R30 * 1000) / 1.57)), ((R34 * 1000) / 1.57));
+                    double BC37 = (B13Double > 0 && B30Double > 0) ? B30Double / 1000 <= R38 ? 1 : 2 : 0;
+                    double BC41 = (B16Double > 0 && B30Double > 0) ? B30Double / 1000 <= R42 ? 1 : 2 : 0;
+                    double BC45 = (B19Double > 0 && B30Double > 0) ? B30Double / 1000 <= R46 ? 1 : 2 : 0;
+                    double M50 = Math.sqrt(4 * T20 / Math.PI);
+                    double O50 = 100000 * ((B33Double - B34Double) / 1000) / (M50 * (B32Double * 1000));
+                    double R50 = O50 * T20;
 
-                    double M25 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
-                    double M26 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
-                    double M29 = (B7Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2))) : 0;
-                    double M33 = (B10Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B11Double / 1000, 2))) : 0;
-                    double M37 = (B13Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B14Double / 1000, 2))) : 0;
-                    double M41 = (B16Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B17Double / 1000, 2))) : 0;
-                    double M45 = (B19Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B20Double / 1000, 2))) : 0;
+                    double minM = 10000000;
+                    double maxM = 0;
+                    if (M25 != 0){
+                        minM = minM > M25 ? M25 : minM;
+                        maxM = maxM < M25 ? M25 : maxM;
+                    }
+                    if (M26 != 0){
+                        minM = minM > M26 ? M26 : minM;
+                        maxM = maxM < M26 ? M26 : maxM;
+                    }
+                    if (M29 != 0){
+                        minM = minM > M29 ? M29 : minM;
+                        maxM = maxM < M29 ? M29 : maxM;
+                    }
+                    if (M33 != 0){
+                        minM = minM > M33 ? M33 : minM;
+                        maxM = maxM < M33 ? M33 : maxM;
+                    }
+                    if (M37 != 0){
+                        minM = minM > M37 ? M37 : minM;
+                        maxM = maxM < M37 ? M37 : maxM;
+                    }
+                    if (M41 != 0){
+                        minM = minM > M41 ? M41 : minM;
+                        maxM = maxM < M41 ? M41 : maxM;
+                    }
+                    if (M45 != 0){
+                        minM = minM > M45 ? M45 : minM;
+                        maxM = maxM < M45 ? M45 : maxM;
+                    }
 
                     G1.setText(String.valueOf(N3));
                     G2.setText(String.valueOf(P3));
@@ -791,8 +870,9 @@ public class HydraulicsFragment extends Fragment {
                     G18.setText(String.valueOf((R34 * 1000) / 1.57));
                     G19.setText(String.valueOf((R38 * 1000) / 1.57));
                     G20.setText(String.valueOf((R42 * 1000) / 1.57));
-                    G21.setText(String.valueOf(Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))));
-                    G22.setText(String.valueOf(Math.max(Math.max(Math.max(M25, M26), Math.max(M29, M33)), Math.max(Math.max(M37, M41), M45))));
+
+                    G21.setText(String.valueOf(minM));
+                    G22.setText(String.valueOf(maxM));
                     G23.setText(String.valueOf(B30Double > 0 ? Q21 : "Q-?"));
                     G24.setText(String.valueOf(B30Double > 0 ? T21 : "Q-?"));
                     G25.setText(String.valueOf(B30Double > 0 ? T21 * 100 / Q21 : "Q-?"));
@@ -801,14 +881,92 @@ public class HydraulicsFragment extends Fragment {
                     G28.setText(String.valueOf(B21Double == 0 ? 0 : M51 / 100000));
                     G29.setText(String.valueOf(Z20));
                     G30.setText(String.valueOf(AF20 / 9.81));
-                    G31.setText(String.valueOf(AS7));
-                    G32.setText(String.valueOf(AS10));
-                    G33.setText(String.valueOf(AS13));
-                    G34.setText(String.valueOf(AS16));
-                    G35.setText(String.valueOf(AS19));
+                    G31.setText(String.valueOf(AS7 == 0 ? "нет" : AS7 == 1 ? "ламинарный" : "Турб."));
+                    G32.setText(String.valueOf(AS10 == 0 ? "нет" : AS10 == 1 ? "ламинарный" : "Турб."));
+                    G33.setText(String.valueOf(AS13 == 0 ? "нет" : AS13 == 1 ? "ламинарный" : "Турб."));
+                    G34.setText(String.valueOf(AS16 == 0 ? "нет" : AS16 == 1 ? "ламинарный" : "Турб."));
+                    G35.setText(String.valueOf(AS19 == 0 ? "нет" : AS19 == 1 ? "ламинарный" : "Турб."));
                     G37.setText(String.valueOf(AQ20 < 0 ? 0 : AQ20));
-                    G38.setText(String.valueOf(((Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))) - (AQ20 < 0 ? 0 : AQ20)) > 0 ? (Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))) - (AQ20 < 0 ? 0 : AQ20) : "↑ шлама невозможен"));
-                    G39.setText(String.valueOf(B39String.equals("a < 50") ? (B30Double / ((Math.min(Math.min(Math.min(M25, M26), Math.min(M29, M33)), Math.min(Math.min(M37, M41), M45))))) * (400000 * 1 / ((B32Double * 8.34) * (T3 * 1000))) / 197 : M49));
+                    G38.setText(String.valueOf((minM - (AQ20 < 0 ? 0 : AQ20)) > 0 ? minM - (AQ20 < 0 ? 0 : AQ20) : "↑ шлама невозможен"));
+                    G39.setText(String.valueOf(B39String.equals("a < 50") ? (B30Double / (minM)) * (400000 * 1 / ((B32Double * 8.34) * (T3 * 1000))) / 197 : M49));
+
+                    H31.setText(String.valueOf(BC26 == 0 ? "нет" : BC26 == 1 ? "ламинарный" : "Турб."));
+                    H32.setText(String.valueOf(BC29 == 0 ? "нет" : BC29 == 1 ? "ламинарный" : "Турб."));
+                    H33.setText(String.valueOf(BC33 == 0 ? "нет" : BC33 == 1 ? "ламинарный" : "Турб."));
+                    H34.setText(String.valueOf(BC37 == 0 ? "нет" : BC37 == 1 ? "ламинарный" : "Турб."));
+                    H35.setText(String.valueOf(BC41 == 0 ? "нет" : BC41 == 1 ? "ламинарный" : "Турб."));
+                    H36.setText(String.valueOf(BC45 == 0 ? "нет" : BC45 == 1 ? "ламинарный" : "Турб."));
+
+                    J33.setText(String.valueOf(R50 * 1000));
+                    J34.setText(String.valueOf(T48 * 1000));
+                    J35.setText(String.valueOf(((B30Double > 0 ? AC20 : 0) * 1.33 / 1000) / (Math.PI * (B3Double * 0.03937) * (B3Double * 0.03937) / 4)));
+                    J36.setText(String.valueOf(T20 * 1000000));
+                    J37.setText(String.valueOf((((minM - (AQ20 < 0 ? 0 : AQ20)) > 0 ? minM - (AQ20 < 0 ? 0 : AQ20) : 0) / minM) * 100));
+                    J38.setText(String.valueOf((minM * 197) * (8.34 * B32Double) * (T3 * 1000) / (400000)));
+
+                    ArrayList<Double> LC1X = new ArrayList<>();
+                    LC1X.add(((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) + ((B33Double - B34Double) / 1000) * 0);
+                    LC1X.add(((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) + ((B33Double - B34Double) / 1000) * 5.11);
+                    LC1X.add(((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) + ((B33Double - B34Double) / 1000) * 170);
+                    LC1X.add(((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) + ((B33Double - B34Double) / 1000) * 341);
+                    LC1X.add(((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) + ((B33Double - B34Double) / 1000) * 511);
+                    LC1X.add(((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) + ((B33Double - B34Double) / 1000) * 1022);
+
+                    ArrayList<Double> LC1Y = new ArrayList<>();
+                    LC1Y.add(0.0);
+                    LC1Y.add(3.0);
+                    LC1Y.add(100.0);
+                    LC1Y.add(200.0);
+                    LC1Y.add(300.0);
+                    LC1Y.add(600.0);
+
+                    lineChart1.setData(dataSetLineData("ВПЖ Бингама", Color.BLUE, LC1X, LC1Y));
+                    lineChart1.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    lineChart1.setDescription(null);
+
+                    ArrayList<Double> LC2X = new ArrayList<>();
+                    ArrayList<Double> LC2Y = new ArrayList<>();
+
+                    ArrayList<Double> LC3X = new ArrayList<>();
+                    ArrayList<Double> LC3Y = new ArrayList<>();
+
+                    double L62 = 0.0;
+
+                    for (int j = 0; j < 65; j++) {
+                        double M62 = (((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * Math.pow((B8Double - 2 * B9Double) / 1000, 2) * (B32Double * 1000)) / Math.pow(((B33Double - B34Double) / 1000), 2);
+                        double R62 = (4 * (L62 / 1000)) / (Math.PI * Math.pow((B8Double - 2 * B9Double) / 1000, 2));
+                        double N62 = 2100 + 7.3 * Math.pow(M62, 0.58);
+                        double T62 = (((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * ((B8Double - 2 * B9Double) / 1000)) / (R62 * ((B33Double - B34Double) / 1000));
+                        double S62 = (R62 * ((B8Double - 2 * B9Double) / 1000) * (B32Double * 1000)) / ((B33Double - B34Double) / 1000);
+                        double O62 = (N62 * ((B33Double - B34Double) / 1000)) / (((B8Double - 2 * B9Double) / 1000) * (B32Double * 1000));
+                        double U62 = S62 / (1 + T62 / 6);
+                        double P62 = (Math.PI * Math.pow((B8Double - 2 * B9Double) / 1000, 2) * O62) / 4;
+                        double V62 = 0.075 / Math.pow(U62, 0.125);
+                        double Q62 = L62 <= (P62 * 1000) ? (128 * (L62 / 1000) * ((B33Double - B34Double) / 1000) * B7Double) / (Math.PI * Math.pow((B8Double - 2 * B9Double) / 1000, 4)) + (16 * ((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * B7Double) / (3 * ((B8Double - 2 * B9Double) / 1000)) : 0;
+                        double W62 = Q62 == 0 ? (V62 * 8 * Math.pow(L62 / 1000, 2) * (B32Double * 1000) * B7Double) / (Math.pow(Math.PI, 2) * Math.pow((B8Double - 2 * B9Double) / 1000, 5)) : 0;
+
+                        double M128 = 25 * Math.pow(((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) / (B32Double * 1000), 0.5);
+                        double N128 = M128 * Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2)) / 4;
+                        double U128 = L62 / 1000 > N128 ? T62 * 8 * Math.pow(L62 / 1000, 2) * (B32Double * 1000) * B7Double / (Math.pow(Math.PI, 2) * Math.pow(B3Double / 1000 - B8Double / 1000, 3) * Math.pow(B3Double / 1000 + B8Double / 1000, 2)) : 0;
+                        double O128 = L62 / 1000 <= N128 ? 128 * (L62 / 1000) * ((B33Double - B34Double) / 1000) * B7Double / (Math.PI * Math.pow(B3Double / 1000 - B8Double / 1000, 3) * (B3Double / 1000 + B8Double / 1000)) + 16 * ((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * B7Double / (3 * (B3Double / 1000 - B8Double / 1000)) : 0;
+
+                        LC2X.add((W62 == 0 ? Q62 : W62) / 100000);
+                        LC2Y.add(L62);
+
+                        LC3X.add((O128 + U128) / 100000);
+                        LC3Y.add(L62);
+
+                        L62 += 1.0;
+                    }
+
+                    lineChart2.setData(dataSetLineData("Потери давления во 2-й секции по Бингаму", Color.BLUE, LC2X, LC2Y));
+                    lineChart2.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    lineChart2.setDescription(null);
+
+                    lineChart3.setData(dataSetLineData("Потери давления в КП 2-й секции по Бингаму", Color.BLUE, LC3X, LC3Y));
+                    lineChart3.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    lineChart3.setDescription(null);
+
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -859,5 +1017,23 @@ public class HydraulicsFragment extends Fragment {
         B38.addTextChangedListener(textWatcher);
         B39.addTextChangedListener(textWatcher);
 
+    }
+
+    public LineData dataSetLineData(String name, Integer color, ArrayList<Double> x, ArrayList<Double> y){
+        LineData lineData;
+        LineDataSet dataset;
+        ArrayList<Entry> entries = new ArrayList<>();
+        for (int i = 0; i < x.size(); i++) {
+            entries.add(new Entry((float) (x.get(i) + 0), (float) (y.get(i) + 0)));
+        }
+
+        dataset = new LineDataSet(entries, name);
+
+        dataset.setDrawFilled(false);
+        dataset.setColor(color);
+
+        lineData = new LineData(dataset);
+
+        return lineData;
     }
 }
