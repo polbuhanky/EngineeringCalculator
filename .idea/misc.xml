@@ -5,8 +5,26 @@
       <map>
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/activity_main.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/activity_pdfviewer.xml" value="0.1109375" />
-        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator1.xml" value="0.11041666666666666" />
-        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator2.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator1.xml" value="0.2" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator2.xml" value="0.264" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_content_solid_phase.xml" value="0.2" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_driling_fluids.xml" value="0.20562560620756548" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_drill_pipe.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_fall_solid_control.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_floculation.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_flow_velocity.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_hydraulic.xml" value="0.10241545893719807" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_mortar.xml" value="0.44258872651356995" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_mortar_weighting.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_obs_colonna.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_production_solid.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_pump_capacity.xml" value="0.31085043988269795" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_pump_supply.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_rheology_liquids.xml" value="0.2" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_solid_calculation_method.xml" value="0.1962962962962963" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_solid_control.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_solid_phase.xml" value="0.264" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_volume_density.xml" value="0.4" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/fragment_blank.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/fragment_pdf_viewer.xml" value="0.1453125" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/main_menu.xml" value="0.152" />

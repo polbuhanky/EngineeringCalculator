@@ -41,11 +41,15 @@
             android:text="1.01"/>
 
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#2DCD0A"
+        android:layout_marginTop="10dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:text="% Тв. фазы в растворе при объемном содерж. нефти:" />
 
     <LinearLayout
