@@ -7,9 +7,11 @@
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/activity_pdfviewer.xml" value="0.1109375" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator1.xml" value="0.2" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator2.xml" value="0.264" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_cnc.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_content_solid_phase.xml" value="0.2" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_driling_fluids.xml" value="0.20562560620756548" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_drill_pipe.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_epbr.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_fall_solid_control.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_floculation.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_flow_velocity.xml" value="0.11041666666666666" />
@@ -24,16 +26,18 @@
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_solid_calculation_method.xml" value="0.1962962962962963" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_solid_control.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_solid_phase.xml" value="0.264" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_swab_surge.xml" value="0.13994565217391305" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/calculator_volume_density.xml" value="0.4" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/fragment_blank.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/fragment_pdf_viewer.xml" value="0.1453125" />
+        <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/hydraulics.xml" value="0.15765322844968863" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/main_menu.xml" value="0.152" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/menu.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Xiaomi/Engineeringcalculator/app/src/main/res/layout/menu_item.xml" value="0.11041666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

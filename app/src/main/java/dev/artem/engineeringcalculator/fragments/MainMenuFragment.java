@@ -20,11 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
-import dev.artem.engineeringcalculator.fragments.PDFSections.EducationFoldersFragment;
 
 public class MainMenuFragment extends Fragment {
     private RecyclerView menuRV;
-    String[] data = {"Обучающий материал", "Расчеты – калькулятор супервайзера", "Общая информация"};
+    String[] data = {"1. Обучающий материал", "2. Расчеты – калькулятор супервайзера", "3. Общая информация"};
 
     MainActivity activity;
     private View rootView;
@@ -47,7 +46,7 @@ public class MainMenuFragment extends Fragment {
         return rootView;
     }
 
-    class menuAdapter extends RecyclerView.Adapter<MainMenuFragment.menuAdapter.ViewHolder>{
+    class menuAdapter extends RecyclerView.Adapter<menuAdapter.ViewHolder>{
         private String[] data;
 
         private Context context;
@@ -59,13 +58,13 @@ public class MainMenuFragment extends Fragment {
 
         @NonNull
         @Override
-        public MainMenuFragment.menuAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(context).inflate(R.layout.menu_item, parent, false);
-            return new MainMenuFragment.menuAdapter.ViewHolder(view);
+            return new ViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MainMenuFragment.menuAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
             holder.itemTV.setText(data[position]);
             holder.backgroundItem.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -82,19 +81,14 @@ public class MainMenuFragment extends Fragment {
                             break;
 
                         case 1:
-                            fragmentTransaction.replace(R.id.big_container, new MenuFragment());
+                            fragmentTransaction.replace(R.id.big_container, new CalculationFoldersFragment());
                             break;
 
                         case 2:
-                            fragmentTransaction.replace(R.id.big_container, new MenuFragment());
+                            fragmentTransaction.replace(R.id.big_container, new InformationFolder());
                             break;
-
-                        case 3:
-                            fragmentTransaction.replace(R.id.big_container, new MenuFragment());
-                            break;
-
                         default:
-                            fragmentTransaction.replace(R.id.big_container, new MenuFragment());
+                            fragmentTransaction.replace(R.id.big_container, new CalculationFoldersFragment());
                     }
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
