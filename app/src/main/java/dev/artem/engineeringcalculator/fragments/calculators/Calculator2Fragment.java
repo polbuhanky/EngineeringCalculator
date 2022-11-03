@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -61,6 +64,16 @@ public class Calculator2Fragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            mixingET.setText(nums.get(0));
+            volumeET.setText(nums.get(1));
+            stockSolutionET.setText(nums.get(2));
+            addedSolutionET.setText(nums.get(3));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -73,15 +86,7 @@ public class Calculator2Fragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double mixing = Double.parseDouble(mixingET.getText().toString());
-                    double volume = Double.parseDouble(volumeET.getText().toString());
-                    double stockSolution = Double.parseDouble(stockSolutionET.getText().toString());
-                    double addedSolution = Double.parseDouble(addedSolutionET.getText().toString());
-
-                    double finishVolumeDouble = mixing + stockSolution;
-
-                    addTV.setText(String.valueOf((stockSolution * addedSolution + mixing * volume) / finishVolumeDouble));
-                    finishVolumeTV.setText(String.valueOf(finishVolumeDouble));
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN2", "Error: " + e);
                 }
@@ -97,5 +102,26 @@ public class Calculator2Fragment extends Fragment {
         stockSolutionET.addTextChangedListener(textWatcher);
         addedSolutionET.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double mixing = Double.parseDouble(mixingET.getText().toString());
+        double volume = Double.parseDouble(volumeET.getText().toString());
+        double stockSolution = Double.parseDouble(stockSolutionET.getText().toString());
+        double addedSolution = Double.parseDouble(addedSolutionET.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(mixing));
+        data.add(String.valueOf(volume));
+        data.add(String.valueOf(stockSolution));
+        data.add(String.valueOf(addedSolution));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double finishVolumeDouble = mixing + stockSolution;
+
+        addTV.setText(String.valueOf((stockSolution * addedSolution + mixing * volume) / finishVolumeDouble));
+        finishVolumeTV.setText(String.valueOf(finishVolumeDouble));
     }
 }

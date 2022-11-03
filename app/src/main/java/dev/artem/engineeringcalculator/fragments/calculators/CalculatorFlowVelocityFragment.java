@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -61,6 +64,16 @@ public class CalculatorFlowVelocityFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            i12.setText(nums.get(0));
+            i13.setText(nums.get(1));
+            i14.setText(nums.get(2));
+            i15.setText(nums.get(3));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -73,21 +86,7 @@ public class CalculatorFlowVelocityFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double i12Double = Double.parseDouble(i12.getText().toString());
-                    double i13Double = Double.parseDouble(i13.getText().toString());
-                    double i14Double = Double.parseDouble(i14.getText().toString());
-                    double i15Double = Double.parseDouble(i15.getText().toString());
-
-                    double L12 = (i12Double * i12Double / 1000000) * 0.785;
-                    double L13 = (i13Double * i13Double / 1000000) * 0.785;
-                    double L14 = (i14Double * i14Double / 1000000) * 0.785;
-
-                    double L18 = i15Double / (L12 - L14);
-                    double L19 = i15Double / (L12 - L13);
-
-                    result1.setText(String.valueOf(L18));
-                    result2.setText(String.valueOf(L19));
-
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -103,5 +102,31 @@ public class CalculatorFlowVelocityFragment extends Fragment {
         i14.addTextChangedListener(textWatcher);
         i15.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double i12Double = Double.parseDouble(i12.getText().toString());
+        double i13Double = Double.parseDouble(i13.getText().toString());
+        double i14Double = Double.parseDouble(i14.getText().toString());
+        double i15Double = Double.parseDouble(i15.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(i12Double));
+        data.add(String.valueOf(i13Double));
+        data.add(String.valueOf(i14Double));
+        data.add(String.valueOf(i15Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double L12 = (i12Double * i12Double / 1000000) * 0.785;
+        double L13 = (i13Double * i13Double / 1000000) * 0.785;
+        double L14 = (i14Double * i14Double / 1000000) * 0.785;
+
+        double L18 = i15Double / (L12 - L14);
+        double L19 = i15Double / (L12 - L13);
+
+        result1.setText(String.valueOf(L18));
+        result2.setText(String.valueOf(L19));
     }
 }

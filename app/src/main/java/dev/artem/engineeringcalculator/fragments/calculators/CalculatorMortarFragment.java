@@ -14,6 +14,9 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -62,6 +65,16 @@ public class CalculatorMortarFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            parametr1.setText(nums.get(0));
+            parametr2.setText(nums.get(1));
+            parametr3.setText(nums.get(2));
+            parametr4.setText(nums.get(3));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -74,17 +87,7 @@ public class CalculatorMortarFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double parametr1Double = Double.parseDouble(parametr1.getText().toString());
-                    double parametr2Double = Double.parseDouble(parametr2.getText().toString());
-                    double parametr3Double = Double.parseDouble(parametr3.getText().toString());
-                    double parametr4Double = Double.parseDouble(parametr4.getText().toString());
-
-                    double L18 = parametr4Double*1000;
-                    double L19 = L18 * (parametr1Double - parametr3Double) / (parametr4Double - parametr1Double) * parametr2Double;
-                    double L20 = parametr2Double + (L19 / L18);
-
-                    result1.setText(String.valueOf(L19));
-                    result2.setText(String.valueOf(L20));
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -100,5 +103,28 @@ public class CalculatorMortarFragment extends Fragment {
         parametr3.addTextChangedListener(textWatcher);
         parametr4.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double parametr1Double = Double.parseDouble(parametr1.getText().toString());
+        double parametr2Double = Double.parseDouble(parametr2.getText().toString());
+        double parametr3Double = Double.parseDouble(parametr3.getText().toString());
+        double parametr4Double = Double.parseDouble(parametr4.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(parametr1Double));
+        data.add(String.valueOf(parametr2Double));
+        data.add(String.valueOf(parametr3Double));
+        data.add(String.valueOf(parametr4Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double L18 = parametr4Double*1000;
+        double L19 = L18 * (parametr1Double - parametr3Double) / (parametr4Double - parametr1Double) * parametr2Double;
+        double L20 = parametr2Double + (L19 / L18);
+
+        result1.setText(String.valueOf(L19));
+        result2.setText(String.valueOf(L20));
     }
 }

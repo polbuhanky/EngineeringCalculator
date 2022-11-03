@@ -148,7 +148,7 @@ public class CalculationFoldersFragment extends Fragment {
         private void openCalculator(String str) {
             FragmentManager myFragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = myFragmentManager.beginTransaction();
-            switch (str.substring(4)) {
+            switch (str.substring(str.indexOf('.') + 2)) {
                 case "Необходимая плотность при смешивании растворов":
                     fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment(str));
                     break;
@@ -249,6 +249,7 @@ public class CalculationFoldersFragment extends Fragment {
                     fragmentTransaction.replace(R.id.big_container, new VolumeForFragment(str));
                     break;
                 default:
+                    Log.e("openCalc", "str: " + str.substring(str.indexOf('.') + 2));
                     fragmentTransaction.replace(R.id.big_container, new Calculator1Fragment(Constant.CALCULATORS_NAMES[0]));
             }
             fragmentTransaction.addToBackStack(null);

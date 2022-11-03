@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -73,6 +76,22 @@ public class CalculatorProductionSolidFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            l6.setText(nums.get(0));
+            l7.setText(nums.get(1));
+            l8.setText(nums.get(2));
+            l9.setText(nums.get(3));
+            l10.setText(nums.get(4));
+            l11.setText(nums.get(5));
+            l12.setText(nums.get(6));
+            l13.setText(nums.get(7));
+            l16.setText(nums.get(8));
+            l21.setText(nums.get(9));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -85,30 +104,7 @@ public class CalculatorProductionSolidFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double l6Double = Double.parseDouble(l6.getText().toString());
-                    double l7Double = Double.parseDouble(l7.getText().toString());
-                    double l8Double = Double.parseDouble(l8.getText().toString());
-                    double l9Double = Double.parseDouble(l9.getText().toString());
-                    double l10Double = Double.parseDouble(l10.getText().toString());
-                    double l11Double = Double.parseDouble(l11.getText().toString());
-                    double l12Double = Double.parseDouble(l12.getText().toString());
-                    double l13Double = Double.parseDouble(l13.getText().toString());
-                    double l16Double = Double.parseDouble(l16.getText().toString());
-                    double l21Double = Double.parseDouble(l21.getText().toString());
-
-                    double O3 = l11Double * 1000;
-                    double O6 = (l6Double * l6Double * 0.785) / 1000 * l13Double;
-                    double O7 = O6 * l11Double;
-                    double O9 = l7Double + l9Double;
-                    double O10 = (l7Double * l8Double + l9Double * l10Double) / (l7Double + l9Double);
-                    double O11 = O3 * (l16Double - O10)/(l11Double - l16Double) * O9;
-                    double O12 = O7 * (100 - l12Double) / 100;
-                    double O16 = (l16Double - 1) / (l11Double - 1) * 1000 * l11Double;
-                    double O18 = O11 / O12;
-                    double O23 = (l7Double * l8Double + l9Double * l10Double + O12 / 1000 * l21Double) / (l7Double + l9Double + O12 * l21Double / l11Double / 1000);
-
-                    result1.setText(String.valueOf(O18));
-                    result2.setText(String.valueOf(O23));
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -130,5 +126,47 @@ public class CalculatorProductionSolidFragment extends Fragment {
         l16.addTextChangedListener(textWatcher);
         l21.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double l6Double = Double.parseDouble(l6.getText().toString());
+        double l7Double = Double.parseDouble(l7.getText().toString());
+        double l8Double = Double.parseDouble(l8.getText().toString());
+        double l9Double = Double.parseDouble(l9.getText().toString());
+        double l10Double = Double.parseDouble(l10.getText().toString());
+        double l11Double = Double.parseDouble(l11.getText().toString());
+        double l12Double = Double.parseDouble(l12.getText().toString());
+        double l13Double = Double.parseDouble(l13.getText().toString());
+        double l16Double = Double.parseDouble(l16.getText().toString());
+        double l21Double = Double.parseDouble(l21.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(l6Double));
+        data.add(String.valueOf(l7Double));
+        data.add(String.valueOf(l8Double));
+        data.add(String.valueOf(l9Double));
+        data.add(String.valueOf(l10Double));
+        data.add(String.valueOf(l11Double));
+        data.add(String.valueOf(l12Double));
+        data.add(String.valueOf(l13Double));
+        data.add(String.valueOf(l16Double));
+        data.add(String.valueOf(l21Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double O3 = l11Double * 1000;
+        double O6 = (l6Double * l6Double * 0.785) / 1000 * l13Double;
+        double O7 = O6 * l11Double;
+        double O9 = l7Double + l9Double;
+        double O10 = (l7Double * l8Double + l9Double * l10Double) / (l7Double + l9Double);
+        double O11 = O3 * (l16Double - O10)/(l11Double - l16Double) * O9;
+        double O12 = O7 * (100 - l12Double) / 100;
+        double O16 = (l16Double - 1) / (l11Double - 1) * 1000 * l11Double;
+        double O18 = O11 / O12;
+        double O23 = (l7Double * l8Double + l9Double * l10Double + O12 / 1000 * l21Double) / (l7Double + l9Double + O12 * l21Double / l11Double / 1000);
+
+        result1.setText(String.valueOf(O18));
+        result2.setText(String.valueOf(O23));
     }
 }

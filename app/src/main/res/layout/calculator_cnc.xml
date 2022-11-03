@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:foregroundGravity="center"
-        android:src="@drawable/chc"/>
+        android:src="@drawable/logo"/>
 
     <LinearLayout
         android:layout_width="match_parent"

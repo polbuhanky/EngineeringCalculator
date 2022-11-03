@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.fragments.MainMenuFragment;
 import dev.artem.engineeringcalculator.utils.StatusBarUtils;
 
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.big_container, mainMenuFragment);
         fragmentTransaction.commit();}
 
-
     }
 
 
@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         myFragmentManager = getSupportFragmentManager();
-
-
+        new SaveInfo(this);
     }
 
     private void initListeners(){

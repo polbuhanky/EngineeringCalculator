@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -56,6 +59,14 @@ public class CalculatorPumpSupplyFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            a44.setText(nums.get(0));
+            b43.setText(nums.get(1));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -68,11 +79,7 @@ public class CalculatorPumpSupplyFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double a44Double = Double.parseDouble(a44.getText().toString());
-                    double b43Double = Double.parseDouble(b43.getText().toString());
-
-                    result1.setText(String.valueOf(1000 / (b43Double * b43Double * 0.785 - a44Double * a44Double * 0.785) * 1000));
-
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -85,5 +92,19 @@ public class CalculatorPumpSupplyFragment extends Fragment {
         };
         a44.addTextChangedListener(textWatcher);
         b43.addTextChangedListener(textWatcher);
+    }
+
+    public void Calculate(){
+        double a44Double = Double.parseDouble(a44.getText().toString());
+        double b43Double = Double.parseDouble(b43.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(a44Double));
+        data.add(String.valueOf(b43Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        result1.setText(String.valueOf(1000 / (b43Double * b43Double * 0.785 - a44Double * a44Double * 0.785) * 1000));
     }
 }

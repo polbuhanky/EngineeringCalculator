@@ -1,6 +1,7 @@
 package dev.artem.engineeringcalculator.fragments.calculators;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,15 +14,14 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-
 import java.util.ArrayList;
+import java.util.Calendar;
 
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
+import icepick.Icepick;
+import icepick.State;
 
 public class CNCFragment extends Fragment {
 
@@ -83,6 +83,8 @@ public class CNCFragment extends Fragment {
 
     MainActivity activity;
     private View rootView;
+
+    SharedPreferences pref;
 
     public CNCFragment(String calculatorName){
         this.calculatorName = calculatorName;
@@ -158,6 +160,55 @@ public class CNCFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            B1.setText(nums.get(0));
+            B2.setText(nums.get(1));
+            B3.setText(nums.get(2));
+            B4.setText(nums.get(3));
+            B5.setText(nums.get(4));
+            B6.setText(nums.get(5));
+            B7.setText(nums.get(6));
+            B8.setText(nums.get(7));
+            B9.setText(nums.get(8));
+            B10.setText(nums.get(9));
+            B11.setText(nums.get(10));
+            B12.setText(nums.get(11));
+            B13.setText(nums.get(12));
+            B14.setText(nums.get(13));
+            B15.setText(nums.get(14));
+            B16.setText(nums.get(15));
+            B17.setText(nums.get(16));
+            B18.setText(nums.get(17));
+            B19.setText(nums.get(18));
+            B20.setText(nums.get(19));
+            B21.setText(nums.get(20));
+            B22.setText(nums.get(21));
+            B23.setText(nums.get(22));
+            B24.setText(nums.get(23));
+            B25.setText(nums.get(24));
+            B26.setText(nums.get(25));
+            B27.setText(nums.get(26));
+            B28.setText(nums.get(27));
+            B29.setText(nums.get(28));
+            B30.setText(nums.get(29));
+            B31.setText(nums.get(30));
+            B32.setText(nums.get(31));
+            B33.setText(nums.get(32));
+            B34.setText(nums.get(33));
+            B35.setText(nums.get(34));
+            B36.setText(nums.get(35));
+            B37.setText(nums.get(36));
+            B38.setText(nums.get(37));
+            B39.setText(nums.get(38));
+            B42.setText(nums.get(39));
+            B43.setText(nums.get(40));
+            B44.setText(nums.get(41));
+            B45.setText(nums.get(42));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -170,74 +221,7 @@ public class CNCFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double B1Double = Double.parseDouble(B1.getText().toString());
-                    double B2Double = Double.parseDouble(B2.getText().toString());
-                    double B3Double = Double.parseDouble(B3.getText().toString());
-                    double B4Double = Double.parseDouble(B4.getText().toString());
-                    double B5Double = Double.parseDouble(B5.getText().toString());
-                    double B6Double = Double.parseDouble(B6.getText().toString());
-                    double B7Double = Double.parseDouble(B7.getText().toString());
-                    double B8Double = Double.parseDouble(B8.getText().toString());
-                    double B9Double = Double.parseDouble(B9.getText().toString());
-                    double B10Double = Double.parseDouble(B10.getText().toString());
-                    double B11Double = Double.parseDouble(B11.getText().toString());
-                    double B12Double = Double.parseDouble(B12.getText().toString());
-                    double B13Double = Double.parseDouble(B13.getText().toString());
-                    double B14Double = Double.parseDouble(B14.getText().toString());
-                    double B15Double = Double.parseDouble(B15.getText().toString());
-                    double B16Double = Double.parseDouble(B16.getText().toString());
-                    double B17Double = Double.parseDouble(B17.getText().toString());
-                    double B18Double = Double.parseDouble(B18.getText().toString());
-                    double B19Double = Double.parseDouble(B19.getText().toString());
-                    double B20Double = Double.parseDouble(B20.getText().toString());
-                    double B21Double = Double.parseDouble(B21.getText().toString());
-                    double B22Double = Double.parseDouble(B22.getText().toString());
-                    double B23Double = Double.parseDouble(B23.getText().toString());
-                    double B24Double = Double.parseDouble(B24.getText().toString());
-                    double B25Double = Double.parseDouble(B25.getText().toString());
-                    double B26Double = Double.parseDouble(B26.getText().toString());
-                    double B27Double = Double.parseDouble(B27.getText().toString());
-                    double B28Double = Double.parseDouble(B28.getText().toString());
-                    double B29Double = Double.parseDouble(B29.getText().toString());
-                    double B30Double = Double.parseDouble(B30.getText().toString());
-                    double B31Double = Double.parseDouble(B31.getText().toString());
-                    double B32Double = Double.parseDouble(B32.getText().toString());
-                    double B33Double = Double.parseDouble(B33.getText().toString());
-                    double B34Double = Double.parseDouble(B34.getText().toString());
-                    double B35Double = Double.parseDouble(B35.getText().toString());
-                    double B36Double = Double.parseDouble(B36.getText().toString());
-                    double B37Double = Double.parseDouble(B37.getText().toString());
-                    double B38Double = Double.parseDouble(B38.getText().toString());
-                    String B39String = B39.getText().toString();
-                    double B42Double = Double.parseDouble(B42.getText().toString());
-                    double B43Double = Double.parseDouble(B43.getText().toString());
-                    double B44Double = Double.parseDouble(B44.getText().toString());
-                    double B45Double = Double.parseDouble(B45.getText().toString());
-
-                    double P24 = (B4Double * 3.2808) > (B22Double * 3.2808) ? (4 * (B4Double * 3.2808) * B45Double) / (1200 * ((B23Double * 0.03937) - (B5Double * 0.03937))) + (4 * ((B4Double * 3.2808) - (B22Double * 3.2808)) * B45Double) / (1200 * ((B3Double * 0.03937) - (B5Double * 0.03937))) : 0;
-                    double P23 = (B4Double * 3.2808) <= (B22Double * 3.2808) ? (4 * (B4Double * 3.2808) * B45Double) / (1200 * ((B23Double * 0.03937) - (B5Double * 0.03937))) : 0;
-                    double P44 = (4 * (B19Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B20Double * 0.03937)));
-                    double P40 = (4 * (B16Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B17Double * 0.03937)));
-                    double P36 = (4 * (B13Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B14Double * 0.03937)));
-                    double P32 = (4 * (B10Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B11Double * 0.03937)));
-                    double P28 = (4 * (B7Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B8Double * 0.03937)));
-                    double R23 = P23 * 0.068046;
-                    double R24 = P24 * 0.068046;
-                    double R28 = P28 * 0.068046;
-                    double R32 = P32 * 0.068046;
-                    double R36 = P36 * 0.068046;
-                    double R40 = P40 * 0.068046;
-                    double R44 = P44 * 0.068046;
-                    double R53 = R23 + R24 + R28 + R32 + R36 + R40 + R44;
-
-                    B47.setText(String.valueOf(R53));
-                    B48.setText(String.valueOf(55));
-                    B49.setText(String.valueOf(57.5));
-                    B50.setText(String.valueOf(B32Double * 1000 - (R53 * 100000) / (9.82 * B43Double)));
-                    B51.setText(String.valueOf(B32Double * 1000 + (R53 * 100000) / (9.82 * B43Double)));
-                    B52.setText(String.valueOf(B43Double * 9.82 * (B32Double * 1000 - (R53 * 100000) / (9.82 * B43Double)) / 100000));
-                    B53.setText(String.valueOf(B43Double * 9.82 * (B32Double * 1000 + (R53 * 100000) / (9.82 * B43Double)) / 100000));
-
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -292,5 +276,123 @@ public class CNCFragment extends Fragment {
         B44.addTextChangedListener(textWatcher);
         B45.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double B1Double = Double.parseDouble(B1.getText().toString());
+        double B2Double = Double.parseDouble(B2.getText().toString());
+        double B3Double = Double.parseDouble(B3.getText().toString());
+        double B4Double = Double.parseDouble(B4.getText().toString());
+        double B5Double = Double.parseDouble(B5.getText().toString());
+        double B6Double = Double.parseDouble(B6.getText().toString());
+        double B7Double = Double.parseDouble(B7.getText().toString());
+        double B8Double = Double.parseDouble(B8.getText().toString());
+        double B9Double = Double.parseDouble(B9.getText().toString());
+        double B10Double = Double.parseDouble(B10.getText().toString());
+        double B11Double = Double.parseDouble(B11.getText().toString());
+        double B12Double = Double.parseDouble(B12.getText().toString());
+        double B13Double = Double.parseDouble(B13.getText().toString());
+        double B14Double = Double.parseDouble(B14.getText().toString());
+        double B15Double = Double.parseDouble(B15.getText().toString());
+        double B16Double = Double.parseDouble(B16.getText().toString());
+        double B17Double = Double.parseDouble(B17.getText().toString());
+        double B18Double = Double.parseDouble(B18.getText().toString());
+        double B19Double = Double.parseDouble(B19.getText().toString());
+        double B20Double = Double.parseDouble(B20.getText().toString());
+        double B21Double = Double.parseDouble(B21.getText().toString());
+        double B22Double = Double.parseDouble(B22.getText().toString());
+        double B23Double = Double.parseDouble(B23.getText().toString());
+        double B24Double = Double.parseDouble(B24.getText().toString());
+        double B25Double = Double.parseDouble(B25.getText().toString());
+        double B26Double = Double.parseDouble(B26.getText().toString());
+        double B27Double = Double.parseDouble(B27.getText().toString());
+        double B28Double = Double.parseDouble(B28.getText().toString());
+        double B29Double = Double.parseDouble(B29.getText().toString());
+        double B30Double = Double.parseDouble(B30.getText().toString());
+        double B31Double = Double.parseDouble(B31.getText().toString());
+        double B32Double = Double.parseDouble(B32.getText().toString());
+        double B33Double = Double.parseDouble(B33.getText().toString());
+        double B34Double = Double.parseDouble(B34.getText().toString());
+        double B35Double = Double.parseDouble(B35.getText().toString());
+        double B36Double = Double.parseDouble(B36.getText().toString());
+        double B37Double = Double.parseDouble(B37.getText().toString());
+        double B38Double = Double.parseDouble(B38.getText().toString());
+        String B39String = B39.getText().toString();
+        double B42Double = Double.parseDouble(B42.getText().toString());
+        double B43Double = Double.parseDouble(B43.getText().toString());
+        double B44Double = Double.parseDouble(B44.getText().toString());
+        double B45Double = Double.parseDouble(B45.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(B1Double));
+        data.add(String.valueOf(B2Double));
+        data.add(String.valueOf(B3Double));
+        data.add(String.valueOf(B4Double));
+        data.add(String.valueOf(B5Double));
+        data.add(String.valueOf(B6Double));
+        data.add(String.valueOf(B7Double));
+        data.add(String.valueOf(B8Double));
+        data.add(String.valueOf(B9Double));
+        data.add(String.valueOf(B10Double));
+        data.add(String.valueOf(B11Double));
+        data.add(String.valueOf(B12Double));
+        data.add(String.valueOf(B13Double));
+        data.add(String.valueOf(B14Double));
+        data.add(String.valueOf(B15Double));
+        data.add(String.valueOf(B16Double));
+        data.add(String.valueOf(B17Double));
+        data.add(String.valueOf(B18Double));
+        data.add(String.valueOf(B19Double));
+        data.add(String.valueOf(B20Double));
+        data.add(String.valueOf(B21Double));
+        data.add(String.valueOf(B22Double));
+        data.add(String.valueOf(B23Double));
+        data.add(String.valueOf(B24Double));
+        data.add(String.valueOf(B25Double));
+        data.add(String.valueOf(B26Double));
+        data.add(String.valueOf(B27Double));
+        data.add(String.valueOf(B28Double));
+        data.add(String.valueOf(B29Double));
+        data.add(String.valueOf(B30Double));
+        data.add(String.valueOf(B31Double));
+        data.add(String.valueOf(B32Double));
+        data.add(String.valueOf(B33Double));
+        data.add(String.valueOf(B34Double));
+        data.add(String.valueOf(B35Double));
+        data.add(String.valueOf(B36Double));
+        data.add(String.valueOf(B37Double));
+        data.add(String.valueOf(B38Double));
+        data.add(B39String);
+        data.add(String.valueOf(B42Double));
+        data.add(String.valueOf(B43Double));
+        data.add(String.valueOf(B44Double));
+        data.add(String.valueOf(B45Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double P24 = (B4Double * 3.2808) > (B22Double * 3.2808) ? (4 * (B4Double * 3.2808) * B45Double) / (1200 * ((B23Double * 0.03937) - (B5Double * 0.03937))) + (4 * ((B4Double * 3.2808) - (B22Double * 3.2808)) * B45Double) / (1200 * ((B3Double * 0.03937) - (B5Double * 0.03937))) : 0;
+        double P23 = (B4Double * 3.2808) <= (B22Double * 3.2808) ? (4 * (B4Double * 3.2808) * B45Double) / (1200 * ((B23Double * 0.03937) - (B5Double * 0.03937))) : 0;
+        double P44 = (4 * (B19Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B20Double * 0.03937)));
+        double P40 = (4 * (B16Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B17Double * 0.03937)));
+        double P36 = (4 * (B13Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B14Double * 0.03937)));
+        double P32 = (4 * (B10Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B11Double * 0.03937)));
+        double P28 = (4 * (B7Double * 3.2808) * B45Double) / (1200 * ((B3Double * 0.03937) - (B8Double * 0.03937)));
+        double R23 = P23 * 0.068046;
+        double R24 = P24 * 0.068046;
+        double R28 = P28 * 0.068046;
+        double R32 = P32 * 0.068046;
+        double R36 = P36 * 0.068046;
+        double R40 = P40 * 0.068046;
+        double R44 = P44 * 0.068046;
+        double R53 = R23 + R24 + R28 + R32 + R36 + R40 + R44;
+
+        B47.setText(String.valueOf(R53));
+        B48.setText(String.valueOf(55));
+        B49.setText(String.valueOf(57.5));
+        B50.setText(String.valueOf(B32Double * 1000 - (R53 * 100000) / (9.82 * B43Double)));
+        B51.setText(String.valueOf(B32Double * 1000 + (R53 * 100000) / (9.82 * B43Double)));
+        B52.setText(String.valueOf(B43Double * 9.82 * (B32Double * 1000 - (R53 * 100000) / (9.82 * B43Double)) / 100000));
+        B53.setText(String.valueOf(B43Double * 9.82 * (B32Double * 1000 + (R53 * 100000) / (9.82 * B43Double)) / 100000));
     }
 }

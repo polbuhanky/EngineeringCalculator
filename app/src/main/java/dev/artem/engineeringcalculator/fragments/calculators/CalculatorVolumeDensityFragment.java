@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -58,6 +61,13 @@ public class CalculatorVolumeDensityFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            a8.setText(nums.get(0));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -70,12 +80,7 @@ public class CalculatorVolumeDensityFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double a8Double = Double.parseDouble(a8.getText().toString());
-
-                    result1.setText(String.valueOf((a8Double - 1) / (2.6 - 1) * 100));
-                    result2.setText(String.valueOf((a8Double - 0.99238) / (2.6 - 0.99238) * 100));
-                    result3.setText(String.valueOf((a8Double - 0.98545) / (2.6 - 0.98545) * 100));
-
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -88,5 +93,19 @@ public class CalculatorVolumeDensityFragment extends Fragment {
         };
         a8.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double a8Double = Double.parseDouble(a8.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(a8Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        result1.setText(String.valueOf((a8Double - 1) / (2.6 - 1) * 100));
+        result2.setText(String.valueOf((a8Double - 0.99238) / (2.6 - 0.99238) * 100));
+        result3.setText(String.valueOf((a8Double - 0.98545) / (2.6 - 0.98545) * 100));
     }
 }

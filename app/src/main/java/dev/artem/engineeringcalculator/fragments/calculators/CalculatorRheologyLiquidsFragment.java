@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -60,6 +63,14 @@ public class CalculatorRheologyLiquidsFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            c9.setText(nums.get(0));
+            e9.setText(nums.get(1));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -72,16 +83,7 @@ public class CalculatorRheologyLiquidsFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double c9Double = Double.parseDouble(c9.getText().toString());
-                    double e9Double = Double.parseDouble(e9.getText().toString());
-
-                    double G9 = c9Double * 1.703;
-                    double I9 = e9Double * 1.067;
-
-                    result1.setText(String.valueOf(G9));
-                    result2.setText(String.valueOf(I9));
-                    result3.setText(String.valueOf(I9 / G9 * 478.8));
-
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -95,5 +97,24 @@ public class CalculatorRheologyLiquidsFragment extends Fragment {
         c9.addTextChangedListener(textWatcher);
         e9.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double c9Double = Double.parseDouble(c9.getText().toString());
+        double e9Double = Double.parseDouble(e9.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(c9Double));
+        data.add(String.valueOf(e9Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double G9 = c9Double * 1.703;
+        double I9 = e9Double * 1.067;
+
+        result1.setText(String.valueOf(G9));
+        result2.setText(String.valueOf(I9));
+        result3.setText(String.valueOf(I9 / G9 * 478.8));
     }
 }

@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -73,6 +76,19 @@ public class CalculatorFloculationFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            k7.setText(nums.get(0));
+            k9.setText(nums.get(1));
+            k10.setText(nums.get(2));
+            k11.setText(nums.get(3));
+            k12.setText(nums.get(4));
+            k13.setText(nums.get(5));
+            k14.setText(nums.get(6));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -85,35 +101,7 @@ public class CalculatorFloculationFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double k7Double = Double.parseDouble(k7.getText().toString());
-                    double k9Double = Double.parseDouble(k9.getText().toString());
-                    double k10Double = Double.parseDouble(k10.getText().toString());
-                    double k11Double = Double.parseDouble(k11.getText().toString());
-                    double k12Double = Double.parseDouble(k12.getText().toString());
-                    double k13Double = Double.parseDouble(k13.getText().toString());
-                    double k14Double = Double.parseDouble(k14.getText().toString());
-
-                    double N7 = (k7Double - 1) / (k12Double - 1) * 1000 * k12Double;
-                    double N9 = k9Double * k9Double * 0.785 / 1000 * k14Double;
-                    double N12 = N9 * k12Double;
-                    double N15 = 50;
-                    double N21 = N12 * k10Double;
-                    double N22 = N21 * (100 - k13Double) / 100;
-                    double N14 = N22 / N7 * 1000;
-                    double N11 = (k11Double - 1) * N14;
-                    double N13 = N22 + N11;
-                    double N17 = N13 / N7;
-                    double N10 = (N9 * k10Double) + (N21 - N22) / k12Double * N15 / 100 + (N22 / k12Double) * N15 / 100 + (2 * k10Double);
-                    double N20 = N10 / 1000;
-                    double N18 = N17 + N20;
-
-
-
-                    result1.setText(String.valueOf(N17));
-                    result2.setText(String.valueOf(N18));
-                    result3.setText(String.valueOf(N20));
-                    result4.setText(String.valueOf(N21));
-                    result5.setText(String.valueOf(N22));
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -131,6 +119,47 @@ public class CalculatorFloculationFragment extends Fragment {
         k12.addTextChangedListener(textWatcher);
         k13.addTextChangedListener(textWatcher);
         k14.addTextChangedListener(textWatcher);
+    }
 
+    public void Calculate(){
+        double k7Double = Double.parseDouble(k7.getText().toString());
+        double k9Double = Double.parseDouble(k9.getText().toString());
+        double k10Double = Double.parseDouble(k10.getText().toString());
+        double k11Double = Double.parseDouble(k11.getText().toString());
+        double k12Double = Double.parseDouble(k12.getText().toString());
+        double k13Double = Double.parseDouble(k13.getText().toString());
+        double k14Double = Double.parseDouble(k14.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(k7Double));
+        data.add(String.valueOf(k9Double));
+        data.add(String.valueOf(k10Double));
+        data.add(String.valueOf(k11Double));
+        data.add(String.valueOf(k12Double));
+        data.add(String.valueOf(k13Double));
+        data.add(String.valueOf(k14Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double N7 = (k7Double - 1) / (k12Double - 1) * 1000 * k12Double;
+        double N9 = k9Double * k9Double * 0.785 / 1000 * k14Double;
+        double N12 = N9 * k12Double;
+        double N15 = 50;
+        double N21 = N12 * k10Double;
+        double N22 = N21 * (100 - k13Double) / 100;
+        double N14 = N22 / N7 * 1000;
+        double N11 = (k11Double - 1) * N14;
+        double N13 = N22 + N11;
+        double N17 = N13 / N7;
+        double N10 = (N9 * k10Double) + (N21 - N22) / k12Double * N15 / 100 + (N22 / k12Double) * N15 / 100 + (2 * k10Double);
+        double N20 = N10 / 1000;
+        double N18 = N17 + N20;
+
+        result1.setText(String.valueOf(N17));
+        result2.setText(String.valueOf(N18));
+        result3.setText(String.valueOf(N20));
+        result4.setText(String.valueOf(N21));
+        result5.setText(String.valueOf(N22));
     }
 }

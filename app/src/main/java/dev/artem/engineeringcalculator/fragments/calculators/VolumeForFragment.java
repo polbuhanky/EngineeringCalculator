@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import dev.artem.engineeringcalculator.Constants.SaveInfo;
 import dev.artem.engineeringcalculator.MainActivity;
 import dev.artem.engineeringcalculator.R;
 
@@ -158,6 +161,52 @@ public class VolumeForFragment extends Fragment {
         calculatorNameTV = rootView.findViewById(R.id.calculatorNameTV);
 
         calculatorNameTV.setText(calculatorName.toUpperCase());
+
+        ArrayList<String> nums = SaveInfo.GetData(getClass().getSimpleName());
+        if (nums != null){
+            B1.setText(nums.get(0));
+            B2.setText(nums.get(1));
+            B3.setText(nums.get(2));
+            B4.setText(nums.get(3));
+            B5.setText(nums.get(4));
+            B6.setText(nums.get(5));
+            B7.setText(nums.get(6));
+            B8.setText(nums.get(7));
+            B9.setText(nums.get(8));
+            B10.setText(nums.get(9));
+            B11.setText(nums.get(10));
+            B12.setText(nums.get(11));
+            B13.setText(nums.get(12));
+            B14.setText(nums.get(13));
+            B15.setText(nums.get(14));
+            B16.setText(nums.get(15));
+            B17.setText(nums.get(16));
+            B18.setText(nums.get(17));
+            B19.setText(nums.get(18));
+            B20.setText(nums.get(19));
+            B21.setText(nums.get(20));
+            B22.setText(nums.get(21));
+            B23.setText(nums.get(22));
+            B25.setText(nums.get(23));
+            B26.setText(nums.get(24));
+            B27.setText(nums.get(25));
+            B28.setText(nums.get(26));
+            B29.setText(nums.get(27));
+            B30.setText(nums.get(28));
+            B31.setText(nums.get(29));
+            B32.setText(nums.get(30));
+            B33.setText(nums.get(31));
+            B34.setText(nums.get(32));
+            B35.setText(nums.get(33));
+            B36.setText(nums.get(34));
+            B37.setText(nums.get(35));
+            B38.setText(nums.get(36));
+            B39.setText(nums.get(37));
+            E1.setText(nums.get(38));
+            E2.setText(nums.get(39));
+
+            Calculate();
+        }
     }
 
     private void initListeners(){
@@ -170,157 +219,7 @@ public class VolumeForFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try{
-                    double B1Double = Double.parseDouble(B1.getText().toString());
-                    double B2Double = Double.parseDouble(B2.getText().toString());
-                    double B3Double = Double.parseDouble(B3.getText().toString());
-                    double B4Double = Double.parseDouble(B4.getText().toString());
-                    double B5Double = Double.parseDouble(B5.getText().toString());
-                    double B6Double = Double.parseDouble(B6.getText().toString());
-                    double B7Double = Double.parseDouble(B7.getText().toString());
-                    double B8Double = Double.parseDouble(B8.getText().toString());
-                    double B9Double = Double.parseDouble(B9.getText().toString());
-                    double B10Double = Double.parseDouble(B10.getText().toString());
-                    double B11Double = Double.parseDouble(B11.getText().toString());
-                    double B12Double = Double.parseDouble(B12.getText().toString());
-                    double B13Double = Double.parseDouble(B13.getText().toString());
-                    double B14Double = Double.parseDouble(B14.getText().toString());
-                    double B15Double = Double.parseDouble(B15.getText().toString());
-                    double B16Double = Double.parseDouble(B16.getText().toString());
-                    double B17Double = Double.parseDouble(B17.getText().toString());
-                    double B18Double = Double.parseDouble(B18.getText().toString());
-                    double B19Double = Double.parseDouble(B19.getText().toString());
-                    double B20Double = Double.parseDouble(B20.getText().toString());
-                    double B21Double = Double.parseDouble(B21.getText().toString());
-                    double B22Double = Double.parseDouble(B22.getText().toString());
-                    double B23Double = Double.parseDouble(B23.getText().toString());
-                    double B25Double = Double.parseDouble(B25.getText().toString());
-                    double B26Double = Double.parseDouble(B26.getText().toString());
-                    double B27Double = Double.parseDouble(B27.getText().toString());
-                    double B28Double = Double.parseDouble(B28.getText().toString());
-                    double B29Double = Double.parseDouble(B29.getText().toString());
-                    double B30Double = Double.parseDouble(B30.getText().toString());
-                    double B31Double = Double.parseDouble(B31.getText().toString());
-                    double B32Double = Double.parseDouble(B32.getText().toString());
-                    double B33Double = Double.parseDouble(B33.getText().toString());
-                    double B34Double = Double.parseDouble(B34.getText().toString());
-                    double B35Double = Double.parseDouble(B35.getText().toString());
-                    double B36Double = Double.parseDouble(B36.getText().toString());
-                    double B37Double = Double.parseDouble(B37.getText().toString());
-                    double B38Double = Double.parseDouble(B38.getText().toString());
-                    String B39String = B39.getText().toString();
-
-                    double E1Double = Double.parseDouble(E1.getText().toString());
-                    double E2Double = Double.parseDouble(E2.getText().toString());
-
-                    double V7 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B20Double / 1000, 2)) / 4;
-                    double J6 = Math.PI * (Math.pow(B17Double / 1000 - 2 * (B18Double / 1000), 2)) / 4;
-                    double J5 = Math.PI * (Math.pow(B14Double / 1000 - 2 * (B15Double / 1000), 2)) / 4;
-                    double J4 = Math.PI * (Math.pow(B11Double / 1000 - 2 * (B12Double / 1000), 2)) / 4;
-                    double J3 = Math.PI * (Math.pow(B8Double / 1000 - 2 * (B9Double / 1000), 2)) / 4;
-                    double J2 = Math.PI * (Math.pow(B5Double / 1000 - 2 * (B6Double / 1000), 2)) / 4;
-                    double M7 = B19Double == 0 ? 0 : V7;
-                    double M6 = J6 * B16Double;
-                    double M5 = J5 * B13Double;
-                    double M4 = J4 * B10Double;
-                    double M3 = J3 * B7Double;
-                    double M2 = J2 * B4Double;
-                    double M8 = M2 + M3 + M4 + M5 + M6 + M7;
-                    double P7 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - M7 - V7;
-                    double P6 = (Math.PI * Math.pow(B17Double / 1000, 2)) / 4 - J6;
-                    double P5 = (Math.PI * Math.pow(B14Double / 1000, 2)) / 4 - J5;
-                    double P4 = (Math.PI * Math.pow(B11Double / 1000, 2)) / 4 - J4;
-                    double P3 = (Math.PI * Math.pow(B8Double / 1000, 2)) / 4 - J3;
-                    double P2 = (Math.PI * Math.pow(B5Double / 1000, 2)) / 4 - J2;
-                    double S7 = P7 * B19Double;
-                    double S6 = P6 * B16Double;
-                    double S5 = P5 * B13Double;
-                    double S4 = P4 * B10Double;
-                    double S3 = P3 * B7Double;
-                    double S2 = P2 * B4Double;
-                    double S8 = S2 + S3 + S4 + S5 + S6 + S7;
-                    double V2 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B5Double/1000, 2)) / 4;
-                    double Y2 = (Math.PI * Math.pow(B23Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B5Double / 1000, 2)) / 4;
-                    double V6 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B17Double/1000, 2)) / 4;
-                    double V5 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B14Double/1000, 2)) / 4;
-                    double V4 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B11Double/1000, 2)) / 4;
-                    double V3 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B8Double/1000, 2)) / 4;
-                    double AB2 = B4Double <= B22Double ? Y2 * B4Double : Y2 * B22Double + V2 * (B4Double - B22Double);
-                    double Y7 = V7 * B19Double;
-                    double Y6 = V6 * B16Double;
-                    double Y5 = V5 * B13Double;
-                    double Y4 = V4 * B10Double;
-                    double Y3 = V3 * B7Double;
-                    double Y8 = Y3 + Y4 + Y5 + Y6 + Y7 + AB2;
-                    double J9 = M8 / ((B30Double / 1000) * 60);
-                    double J10 = Y8 / ((B30Double / 1000) * 60);
-
-
-                    double P10 = Math.log10(B33Double / B34Double) / Math.log10(600/300);
-                    double R3 = Math.log10(B34Double / B35Double) / Math.log10(300 / 6);
-                    double AC24 = (4 * B30Double / 1000) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2)));
-                    double AF24 = (4 * B30Double / 1000) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2)));
-                    double M25 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
-                    double M26 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
-                    double M29 = (B7Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2))) : 0;
-                    double M33 = (B10Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B11Double / 1000, 2))) : 0;
-                    double AI20 = Math.pow(B37Double / 1000, 3) * (B32Double * 1000) * (B38Double * 1000 - B32Double * 1000) * 9.81 / Math.pow(((B33Double - B34Double) / 1000), 2);
-                    double AK20 = Math.pow(B37Double / 1000, 2) * ((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * (B32Double * 1000) / Math.pow(((B33Double - B34Double) / 1000), 2);
-
-                    double R10 = (5.11 * B33Double) / Math.pow(1022, P10);
-                    double T3 = 0.511 * B34Double / Math.pow(511, R3);
-                    double M24 = (Math.pow(2 * R3 + 1, 2) / R3) * Math.pow((1 / (2 + R3)), ((R3 + 2) / (R3 + 1)));
-                    double N34 = (Math.pow(2 * R3 + 1, 2) / R3) * Math.pow((1 / (2 + R3)), ((R3 + 2) / (R3 + 1)));
-                    double N30 = (Math.pow(2 * R3 + 1, 2) / R3) * Math.pow((1 / (2 + R3)), ((R3 + 2) / (R3 + 1)));
-                    double AK24 = Math.pow(12, (1 - R3)) * Math.pow(3 * R3 / (2 * R3 + 1), R3) * Math.pow(AF24, (2 - R3)) * Math.pow(B3Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000) / T3;
-                    double AI24 = Math.pow(12, (1 - R3)) * Math.pow(3 * R3 / (2 * R3 + 1), R3) * Math.pow(AC24, (2 - R3)) * Math.pow(B23Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000) / T3;
-                    double O24 = 4848 / M24;
-                    double P34 = 4848 / N34;
-                    double P30 = 4848 / N30;
-                    double AO24 = 0.09 / Math.pow((AK24), 0.125);
-                    double AM24 = 0.09 / Math.pow((AI24), 0.125);
-                    double T24 = (B4Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2)) / 4) * Math.pow(O24 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B3Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
-                    double Q24 = (B4Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2)) / 4) * Math.pow(O24 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B23Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
-                    double R34 = (B10Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B11Double / 1000, 2)) / 4) * Math.pow(P34 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B3Double / 1000 - B11Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
-                    double R30 = (B7Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2)) / 4) * Math.pow(P30 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B3Double / 1000 - B8Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
-                    double AU24 = B30Double / 1000 > T24 ? B4Double > B22Double ? AM24 * B22Double * Math.pow(AC24, 2) * (B32Double * 1000) / (2 * (B23Double / 1000 - B5Double / 1000)) + AO24 * (B4Double - B22Double) * Math.pow(AF24, 2) * (B32Double * 1000) / (2 * (B3Double / 1000 - B5Double / 1000)) : 0 : 0;
-                    double Z24 = B30Double / 1000 <= T24 ? B22Double < B4Double ? Math.pow(2, (2 + 4 * R3)) * T3 * Math.pow((2 * R3 + 1) * (B30Double / 1000) / (R3 * Math.PI * (B23Double / 1000 + B5Double / 1000)), R3) * B22Double / Math.pow((B23Double / 1000 - B5Double / 1000), (2 * R3 + 1)) + Math.pow(2, (2 + 4 * R3)) * T3 * Math.pow((2 * R3 + 1) * (B30Double / 1000) / (R3 * Math.PI * (B3Double / 1000 + B5Double / 1000)), R3) * (B4Double - B22Double) / Math.pow((B3Double / 1000 - B5Double / 1000), (2 * R3 + 1)) : 0 : 0;
-                    double BC26 = (B4Double > 0 && B30Double > 0) ? B30Double <= (((Z24 + AU24 == 0) ? Q24 * 1000 : T24 * 1000) / 1.57) ? 1 : 2 : 0;
-                    double BC29 = (B7Double > 0 && B30Double > 0) ? B30Double / 1000 <= R30 ? 1 : 2 : 0;
-                    double BC33 = (B10Double > 0 && B30Double > 0) ? B30Double / 1000 <= R34 ? 1 : 2 : 0;
-                    double AO20 = 4 * Math.pow((B37Double / 1000) * ((B38Double * 1000) - (B32Double * 1000)) / (B32Double * 1000), 0.5);
-                    double AM20 = ((B33Double - B34Double) / 1000) * (AI20 - 6 * AK20) / ((B37Double / 1000) * (B32Double * 1000) * (18 + 0.61 * Math.pow(AI20, 0.5)));
-                    double AQ20 = ((BC26 == 1 || BC26 == 0) && (BC29 == 1 || BC29 == 0) && (BC33 == 1 || BC33 == 0)) ? AM20 : AO20;
-
-                    double L12 = M33 != 0 ? 1 : 0;
-                    double L11 = M29 != 0 ? 1 : 0;
-                    double L10 = 1;
-                    double L9 = 1;
-                    double M12 = M33;
-                    double M11 = M29;
-                    double M10 = M26;
-                    double M9 = M25;
-                    double L13 = L9 + L10 + L11 + L12;
-                    double M13 = M9 + M10 + M11 + M12;
-                    double O9 = M13 / L13;
-                    double O10 = O9 - (AQ20 < 0 ? 0 : AQ20);
-                    double O11 = (E2Double / O10) / 60;
-                    double R12 = B11Double > 0 ? (100 * V4) / ((B30Double / 1000) * 60) : 0;
-                    double R11 = B8Double > 0 ? (100 * V3) / ((B30Double / 1000) * 60) : 0;
-                    double R9 = (B5Double > 0 && B23Double > 0) ? (100 * Y2) / ((B30Double / 1000) * 60) : 0;
-
-                    E3.setText(String.valueOf(M8));
-                    E4.setText(String.valueOf(S8));
-                    E5.setText(String.valueOf(Y8));
-                    E6.setText(String.valueOf(M8 + Y8));
-                    E7.setText(String.valueOf(J9));
-                    E8.setText(String.valueOf(J10));
-                    E9.setText(String.valueOf(J9 + J10));
-                    E10.setText(String.valueOf(O11));
-                    E11.setText(String.valueOf(B10Double == 0 ? 0 : R12));
-                    E12.setText(String.valueOf(B7Double == 0 ? 0 : R11));
-                    E13.setText(String.valueOf(B4Double == 0 ? 0 : R10));
-                    E14.setText(String.valueOf(R9));
-
+                    Calculate();
                 } catch (Exception e){
                     Log.d("MAIN", "Error: " + e);
                 }
@@ -372,5 +271,203 @@ public class VolumeForFragment extends Fragment {
         E1.addTextChangedListener(textWatcher);
         E2.addTextChangedListener(textWatcher);
 
+    }
+
+    public void Calculate(){
+        double B1Double = Double.parseDouble(B1.getText().toString());
+        double B2Double = Double.parseDouble(B2.getText().toString());
+        double B3Double = Double.parseDouble(B3.getText().toString());
+        double B4Double = Double.parseDouble(B4.getText().toString());
+        double B5Double = Double.parseDouble(B5.getText().toString());
+        double B6Double = Double.parseDouble(B6.getText().toString());
+        double B7Double = Double.parseDouble(B7.getText().toString());
+        double B8Double = Double.parseDouble(B8.getText().toString());
+        double B9Double = Double.parseDouble(B9.getText().toString());
+        double B10Double = Double.parseDouble(B10.getText().toString());
+        double B11Double = Double.parseDouble(B11.getText().toString());
+        double B12Double = Double.parseDouble(B12.getText().toString());
+        double B13Double = Double.parseDouble(B13.getText().toString());
+        double B14Double = Double.parseDouble(B14.getText().toString());
+        double B15Double = Double.parseDouble(B15.getText().toString());
+        double B16Double = Double.parseDouble(B16.getText().toString());
+        double B17Double = Double.parseDouble(B17.getText().toString());
+        double B18Double = Double.parseDouble(B18.getText().toString());
+        double B19Double = Double.parseDouble(B19.getText().toString());
+        double B20Double = Double.parseDouble(B20.getText().toString());
+        double B21Double = Double.parseDouble(B21.getText().toString());
+        double B22Double = Double.parseDouble(B22.getText().toString());
+        double B23Double = Double.parseDouble(B23.getText().toString());
+        double B25Double = Double.parseDouble(B25.getText().toString());
+        double B26Double = Double.parseDouble(B26.getText().toString());
+        double B27Double = Double.parseDouble(B27.getText().toString());
+        double B28Double = Double.parseDouble(B28.getText().toString());
+        double B29Double = Double.parseDouble(B29.getText().toString());
+        double B30Double = Double.parseDouble(B30.getText().toString());
+        double B31Double = Double.parseDouble(B31.getText().toString());
+        double B32Double = Double.parseDouble(B32.getText().toString());
+        double B33Double = Double.parseDouble(B33.getText().toString());
+        double B34Double = Double.parseDouble(B34.getText().toString());
+        double B35Double = Double.parseDouble(B35.getText().toString());
+        double B36Double = Double.parseDouble(B36.getText().toString());
+        double B37Double = Double.parseDouble(B37.getText().toString());
+        double B38Double = Double.parseDouble(B38.getText().toString());
+        String B39String = B39.getText().toString();
+
+        double E1Double = Double.parseDouble(E1.getText().toString());
+        double E2Double = Double.parseDouble(E2.getText().toString());
+
+        ArrayList<String> data = new ArrayList<>();
+
+        data.add(String.valueOf(B1Double));
+        data.add(String.valueOf(B2Double));
+        data.add(String.valueOf(B3Double));
+        data.add(String.valueOf(B4Double));
+        data.add(String.valueOf(B5Double));
+        data.add(String.valueOf(B6Double));
+        data.add(String.valueOf(B7Double));
+        data.add(String.valueOf(B8Double));
+        data.add(String.valueOf(B9Double));
+        data.add(String.valueOf(B10Double));
+        data.add(String.valueOf(B11Double));
+        data.add(String.valueOf(B12Double));
+        data.add(String.valueOf(B13Double));
+        data.add(String.valueOf(B14Double));
+        data.add(String.valueOf(B15Double));
+        data.add(String.valueOf(B16Double));
+        data.add(String.valueOf(B17Double));
+        data.add(String.valueOf(B18Double));
+        data.add(String.valueOf(B19Double));
+        data.add(String.valueOf(B20Double));
+        data.add(String.valueOf(B21Double));
+        data.add(String.valueOf(B22Double));
+        data.add(String.valueOf(B23Double));
+        data.add(String.valueOf(B25Double));
+        data.add(String.valueOf(B26Double));
+        data.add(String.valueOf(B27Double));
+        data.add(String.valueOf(B28Double));
+        data.add(String.valueOf(B29Double));
+        data.add(String.valueOf(B30Double));
+        data.add(String.valueOf(B31Double));
+        data.add(String.valueOf(B32Double));
+        data.add(String.valueOf(B33Double));
+        data.add(String.valueOf(B34Double));
+        data.add(String.valueOf(B35Double));
+        data.add(String.valueOf(B36Double));
+        data.add(String.valueOf(B37Double));
+        data.add(String.valueOf(B38Double));
+        data.add(B39String);
+        data.add(String.valueOf(E1Double));
+        data.add(String.valueOf(E2Double));
+
+        SaveInfo.SaveString(getClass().getSimpleName(), data);
+
+        double V7 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B20Double / 1000, 2)) / 4;
+        double J6 = Math.PI * (Math.pow(B17Double / 1000 - 2 * (B18Double / 1000), 2)) / 4;
+        double J5 = Math.PI * (Math.pow(B14Double / 1000 - 2 * (B15Double / 1000), 2)) / 4;
+        double J4 = Math.PI * (Math.pow(B11Double / 1000 - 2 * (B12Double / 1000), 2)) / 4;
+        double J3 = Math.PI * (Math.pow(B8Double / 1000 - 2 * (B9Double / 1000), 2)) / 4;
+        double J2 = Math.PI * (Math.pow(B5Double / 1000 - 2 * (B6Double / 1000), 2)) / 4;
+        double M7 = B19Double == 0 ? 0 : V7;
+        double M6 = J6 * B16Double;
+        double M5 = J5 * B13Double;
+        double M4 = J4 * B10Double;
+        double M3 = J3 * B7Double;
+        double M2 = J2 * B4Double;
+        double M8 = M2 + M3 + M4 + M5 + M6 + M7;
+        double P7 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - M7 - V7;
+        double P6 = (Math.PI * Math.pow(B17Double / 1000, 2)) / 4 - J6;
+        double P5 = (Math.PI * Math.pow(B14Double / 1000, 2)) / 4 - J5;
+        double P4 = (Math.PI * Math.pow(B11Double / 1000, 2)) / 4 - J4;
+        double P3 = (Math.PI * Math.pow(B8Double / 1000, 2)) / 4 - J3;
+        double P2 = (Math.PI * Math.pow(B5Double / 1000, 2)) / 4 - J2;
+        double S7 = P7 * B19Double;
+        double S6 = P6 * B16Double;
+        double S5 = P5 * B13Double;
+        double S4 = P4 * B10Double;
+        double S3 = P3 * B7Double;
+        double S2 = P2 * B4Double;
+        double S8 = S2 + S3 + S4 + S5 + S6 + S7;
+        double V2 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B5Double/1000, 2)) / 4;
+        double Y2 = (Math.PI * Math.pow(B23Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B5Double / 1000, 2)) / 4;
+        double V6 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B17Double/1000, 2)) / 4;
+        double V5 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B14Double/1000, 2)) / 4;
+        double V4 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B11Double/1000, 2)) / 4;
+        double V3 = (Math.PI * Math.pow(B3Double / 1000, 2)) / 4 - (Math.PI * Math.pow(B8Double/1000, 2)) / 4;
+        double AB2 = B4Double <= B22Double ? Y2 * B4Double : Y2 * B22Double + V2 * (B4Double - B22Double);
+        double Y7 = V7 * B19Double;
+        double Y6 = V6 * B16Double;
+        double Y5 = V5 * B13Double;
+        double Y4 = V4 * B10Double;
+        double Y3 = V3 * B7Double;
+        double Y8 = Y3 + Y4 + Y5 + Y6 + Y7 + AB2;
+        double J9 = M8 / ((B30Double / 1000) * 60);
+        double J10 = Y8 / ((B30Double / 1000) * 60);
+
+
+        double P10 = Math.log10(B33Double / B34Double) / Math.log10(600/300);
+        double R3 = Math.log10(B34Double / B35Double) / Math.log10(300 / 6);
+        double AC24 = (4 * B30Double / 1000) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2)));
+        double AF24 = (4 * B30Double / 1000) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2)));
+        double M25 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
+        double M26 = (B4Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2))) : 0;
+        double M29 = (B7Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2))) : 0;
+        double M33 = (B10Double > 0 && B30Double > 0) ? (4 * (B30Double / 1000)) / (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B11Double / 1000, 2))) : 0;
+        double AI20 = Math.pow(B37Double / 1000, 3) * (B32Double * 1000) * (B38Double * 1000 - B32Double * 1000) * 9.81 / Math.pow(((B33Double - B34Double) / 1000), 2);
+        double AK20 = Math.pow(B37Double / 1000, 2) * ((B34Double - ((B33Double - B34Double) / 1000) * 1000) * 0.479) * (B32Double * 1000) / Math.pow(((B33Double - B34Double) / 1000), 2);
+
+        double R10 = (5.11 * B33Double) / Math.pow(1022, P10);
+        double T3 = 0.511 * B34Double / Math.pow(511, R3);
+        double M24 = (Math.pow(2 * R3 + 1, 2) / R3) * Math.pow((1 / (2 + R3)), ((R3 + 2) / (R3 + 1)));
+        double N34 = (Math.pow(2 * R3 + 1, 2) / R3) * Math.pow((1 / (2 + R3)), ((R3 + 2) / (R3 + 1)));
+        double N30 = (Math.pow(2 * R3 + 1, 2) / R3) * Math.pow((1 / (2 + R3)), ((R3 + 2) / (R3 + 1)));
+        double AK24 = Math.pow(12, (1 - R3)) * Math.pow(3 * R3 / (2 * R3 + 1), R3) * Math.pow(AF24, (2 - R3)) * Math.pow(B3Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000) / T3;
+        double AI24 = Math.pow(12, (1 - R3)) * Math.pow(3 * R3 / (2 * R3 + 1), R3) * Math.pow(AC24, (2 - R3)) * Math.pow(B23Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000) / T3;
+        double O24 = 4848 / M24;
+        double P34 = 4848 / N34;
+        double P30 = 4848 / N30;
+        double AO24 = 0.09 / Math.pow((AK24), 0.125);
+        double AM24 = 0.09 / Math.pow((AI24), 0.125);
+        double T24 = (B4Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B5Double / 1000, 2)) / 4) * Math.pow(O24 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B3Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
+        double Q24 = (B4Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B23Double / 1000, 2) - Math.pow(B5Double / 1000, 2)) / 4) * Math.pow(O24 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B23Double / 1000 - B5Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
+        double R34 = (B10Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B11Double / 1000, 2)) / 4) * Math.pow(P34 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B3Double / 1000 - B11Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
+        double R30 = (B7Double > 0 && B30Double > 0) ? (Math.PI * (Math.pow(B3Double / 1000, 2) - Math.pow(B8Double / 1000, 2)) / 4) * Math.pow(P30 * T3 * Math.pow((2 * R3 + 1) / R3, R3) / (Math.pow(12, (1 - R3)) * Math.pow(B3Double / 1000 - B8Double / 1000, R3) * (B32Double * 1000)), (1 / (2 - R3))) : 0;
+        double AU24 = B30Double / 1000 > T24 ? B4Double > B22Double ? AM24 * B22Double * Math.pow(AC24, 2) * (B32Double * 1000) / (2 * (B23Double / 1000 - B5Double / 1000)) + AO24 * (B4Double - B22Double) * Math.pow(AF24, 2) * (B32Double * 1000) / (2 * (B3Double / 1000 - B5Double / 1000)) : 0 : 0;
+        double Z24 = B30Double / 1000 <= T24 ? B22Double < B4Double ? Math.pow(2, (2 + 4 * R3)) * T3 * Math.pow((2 * R3 + 1) * (B30Double / 1000) / (R3 * Math.PI * (B23Double / 1000 + B5Double / 1000)), R3) * B22Double / Math.pow((B23Double / 1000 - B5Double / 1000), (2 * R3 + 1)) + Math.pow(2, (2 + 4 * R3)) * T3 * Math.pow((2 * R3 + 1) * (B30Double / 1000) / (R3 * Math.PI * (B3Double / 1000 + B5Double / 1000)), R3) * (B4Double - B22Double) / Math.pow((B3Double / 1000 - B5Double / 1000), (2 * R3 + 1)) : 0 : 0;
+        double BC26 = (B4Double > 0 && B30Double > 0) ? B30Double <= (((Z24 + AU24 == 0) ? Q24 * 1000 : T24 * 1000) / 1.57) ? 1 : 2 : 0;
+        double BC29 = (B7Double > 0 && B30Double > 0) ? B30Double / 1000 <= R30 ? 1 : 2 : 0;
+        double BC33 = (B10Double > 0 && B30Double > 0) ? B30Double / 1000 <= R34 ? 1 : 2 : 0;
+        double AO20 = 4 * Math.pow((B37Double / 1000) * ((B38Double * 1000) - (B32Double * 1000)) / (B32Double * 1000), 0.5);
+        double AM20 = ((B33Double - B34Double) / 1000) * (AI20 - 6 * AK20) / ((B37Double / 1000) * (B32Double * 1000) * (18 + 0.61 * Math.pow(AI20, 0.5)));
+        double AQ20 = ((BC26 == 1 || BC26 == 0) && (BC29 == 1 || BC29 == 0) && (BC33 == 1 || BC33 == 0)) ? AM20 : AO20;
+
+        double L12 = M33 != 0 ? 1 : 0;
+        double L11 = M29 != 0 ? 1 : 0;
+        double L10 = 1;
+        double L9 = 1;
+        double M12 = M33;
+        double M11 = M29;
+        double M10 = M26;
+        double M9 = M25;
+        double L13 = L9 + L10 + L11 + L12;
+        double M13 = M9 + M10 + M11 + M12;
+        double O9 = M13 / L13;
+        double O10 = O9 - (AQ20 < 0 ? 0 : AQ20);
+        double O11 = (E2Double / O10) / 60;
+        double R12 = B11Double > 0 ? (100 * V4) / ((B30Double / 1000) * 60) : 0;
+        double R11 = B8Double > 0 ? (100 * V3) / ((B30Double / 1000) * 60) : 0;
+        double R9 = (B5Double > 0 && B23Double > 0) ? (100 * Y2) / ((B30Double / 1000) * 60) : 0;
+
+        E3.setText(String.valueOf(M8));
+        E4.setText(String.valueOf(S8));
+        E5.setText(String.valueOf(Y8));
+        E6.setText(String.valueOf(M8 + Y8));
+        E7.setText(String.valueOf(J9));
+        E8.setText(String.valueOf(J10));
+        E9.setText(String.valueOf(J9 + J10));
+        E10.setText(String.valueOf(O11));
+        E11.setText(String.valueOf(B10Double == 0 ? 0 : R12));
+        E12.setText(String.valueOf(B7Double == 0 ? 0 : R11));
+        E13.setText(String.valueOf(B4Double == 0 ? 0 : R10));
+        E14.setText(String.valueOf(R9));
     }
 }
